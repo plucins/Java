@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -38,7 +39,7 @@
       <HBox BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="previousButton" mnemonicParsing="false" text="Button" />
-            <Button fx:id="playButton" mnemonicParsing="false" text="Button" />
+            <ToggleButton fx:id="playButton" mnemonicParsing="false" text="ToggleButton" />
             <Button fx:id="nextButton" mnemonicParsing="false" text="Button" />
             <Slider fx:id="volumeSlider" />
             <Slider fx:id="songSlider" />
