@@ -8,7 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 
-public class Menucontroller implements Initializable {
+public class MenuController implements Initializable {
 
     @FXML
     private MenuItem aboutMenuItem;
