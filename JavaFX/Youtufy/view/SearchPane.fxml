@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-    fx:controller="youtufy.controller.SearchController">
+<VBox xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="youtufy.controller.SearchController">
     <children>
-        <TextField fx:id="searchTextField" />
-        <ListView fx:id="historyListView" prefHeight="200.0"
-            prefWidth="200.0" />
+        <TextField id="search-text-field" fx:id="searchTextField" />
+        <ListView id="history-text-view" fx:id="historyListView" maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
     </children>
 </VBox>
