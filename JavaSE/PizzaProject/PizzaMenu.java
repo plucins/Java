@@ -2,14 +2,14 @@ package pizzaproject;
 
 import java.util.Scanner;
 
-public class PizzaCreator {
+public class PizzaMenu {
 
     Scanner sc = new Scanner(System.in);
     int wybor = -1;
 
-    public Pizza createOwnPizza() {
+    public Pizza PizzaMenu() {
         
-        Pizza pizza = new PizzaSmall();
+        Pizza pizza = null;
         int size = 0;
         boolean czyDobrze;
         do {
@@ -33,50 +33,28 @@ public class PizzaCreator {
             }
 
         } while(!czyDobrze);
-
-        System.out.println("wybierz interesujące Cie składniki");
         System.out.println();
-        System.out.println("SOS: 1 - pomidorowy, 2- śmietanowy");
-        System.out.println("Składniki mięsne: 3 - szynka, 4 - salami");
-        System.out.println("Składniki serowe: 5 -  mozarella, 6 - ser feta");
-        System.out.println("Dodatki: 7 -  pieczarki, 8 - cebula");
-        System.out.println("0 - zakończ dobór składników");
+        System.out.println("=====Menu=====");
+        System.out.println("1. Wegetariańska (Sos pomidorowy, pieczarki, cebula)");
+        System.out.println("2. Capricciosa (Sos śmietanowy, pieczarki, szynka)");
+        System.out.println("3. Sallaniooos (Sos pomidorowy, cebula, salami x2)");
         
-        do {
             wybor = sc.nextInt();
             sc.nextLine();
             switch (wybor) {
                 case 1:
-                    pizza = new TomatoSouce(pizza);
+                    pizza = new TomatoSouce(new Mushrooms(new Onion(pizza)));
                     break;
                 case 2:
-                    pizza = new CreamSouce(pizza);
+                    pizza = new CreamSouce(new Mushrooms(new Ham(pizza)));
                     break;
                 case 3:
-                    pizza = new Ham(pizza);
-                    break;
-                case 4:
-                    pizza = new Salami(pizza);
-                    break;
-                case 5:
-                    pizza = new Mozarella(pizza);
-                    break;
-                case 6:
-                    pizza = new Feta(pizza);
-                    break;
-                case 7:
-                    pizza = new Mushrooms(pizza);
-                    break;
-                case 8:
-                    pizza = new Onion(pizza);
+                    pizza = new TomatoSouce(new Onion(new Salami(new Salami(pizza))));
                     break;
             }
-            if(wybor != 0){
                 System.out.println(pizza.getDiscription());
                 System.out.println(pizza.getCost());
-            }
-        }while (wybor != 0);
-        
+
         return pizza;
     }
 
