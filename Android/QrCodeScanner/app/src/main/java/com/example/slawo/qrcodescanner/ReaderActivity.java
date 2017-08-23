@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -50,8 +51,11 @@ public class ReaderActivity extends AppCompatActivity {
             if(result.getContents()==null){
                 Toast.makeText(this,"You cancelled the scanning", Toast.LENGTH_LONG).show();
             }else {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(result.getContents())));
-
+                if(URLUtil.isValidUrl(result.getContents())) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(result.getContents())));
+                }else {
+                    Toast.makeText(this,"Invalid QR Code", Toast.LENGTH_LONG).show();
+                }
             }
         }else {
             super.onActivityResult(requestCode, resultCode, data);
