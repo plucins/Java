@@ -31,8 +31,7 @@ public class Run {
                     ftp.deleteFileFromFtp(ftpData);
                 }
             }
-
-            ftp.disconnect();
+            
 
         }catch(Exception e){
             e.printStackTrace();
