@@ -28,4 +28,12 @@ public class TvSeries {
     public void setSeasons(List<Season> seasons) {
         this.seasons = seasons;
     }
+
+    @Override
+    public String toString() {
+        return "TvSeries{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

@@ -6,15 +6,18 @@ public class test {
         DBManager db = new DBManager();
         Scanner sc = new Scanner(System.in);
         TvSeries tv;
-        Season s;
+
 
         System.out.println("Wybierz serial o którym chcesz się więcej dowiedzieć");
+        System.out.println("Podaj jego ID");
+        db.getSeasonName();
+        int chose = sc.nextInt();
+        sc.nextLine();
+        System.out.println(db.getTvSeriesInfo(chose));
+        System.out.println(db.getSeasonInfo().getSeasons());
         tv = db.getSeasonInfo();
-        s = db.getEpisodInfo(tv);
-        System.out.println(tv.getSeasons());
-        System.out.println(s.getEpisodes());
+        System.out.println(db.getEpisodInfo(tv).getEpisodes());
 
-//        int chose = sc.nextInt();
 //        switch(chose){
 //            case 1:
 //

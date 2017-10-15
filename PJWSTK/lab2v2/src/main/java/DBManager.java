@@ -10,6 +10,7 @@ public class DBManager {
     private PreparedStatement getEpisodeStatement;
 
     public Season s;
+    TvSeries tv = null;
 
     String url = "jdbc:mysql://sql.s13.vdl.pl/plucins_pjwstk";
     String username = "plucins_pjwstk";
@@ -30,13 +31,11 @@ public class DBManager {
     }
 
     public void getSeasonName() {
-        int count = 1;
         try {
             ResultSet rs = getTvSeriesStatement.executeQuery();
 
             while (rs.next()) {
-                System.out.println(count + ". " + rs.getString("tvSeriesName"));
-                count++;
+                System.out.println(rs.getInt("id") + ". " + rs.getString("tvSeriesName"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -45,13 +44,29 @@ public class DBManager {
 
     }
 
+    public TvSeries getTvSeriesInfo(int choise){
+        try{
+            ResultSet rs = getTvSeriesStatement.executeQuery();
+            while(rs.next()){
+                if((rs.getInt("id")) == choise){
+                    tv = new TvSeries();
+                    tv.setId(rs.getInt("id"));
+                    tv.setName(rs.getString("tvSeriesName"));
+                }
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return tv;
+    }
+
     public TvSeries getSeasonInfo() {
         List<Season> seasons = new ArrayList<>();
-        TvSeries tv = null;
+
         try {
             ResultSet rs = getSeasonStatement.executeQuery();
             while (rs.next()) {
-                if(rs.getInt("idTvSeries") == 2) {
+                if((tv.getId()) == rs.getInt("idTvSeries")) {
                     s = new Season();
                     s.setSeasonNumber(rs.getInt("seasonNumber"));
                     s.setYearOfrelease(rs.getInt("seasonYearOfrelease"));
@@ -59,15 +74,7 @@ public class DBManager {
                     seasons.add(s);
                 }
             }
-
-            rs = getTvSeriesStatement.executeQuery();
-            while (rs.next()) {
-                if ((rs.getInt("id")) == 2) {
-                    tv = new TvSeries();
-                    tv.setName(rs.getString("tvSeriesName"));
-                    tv.setSeasons(seasons);
-                }
-            }
+            tv.setSeasons(seasons);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -81,6 +88,8 @@ public class DBManager {
             ResultSet rs = getEpisodeStatement.executeQuery();
             while (rs.next()) {
                 for(int i=0; i < tv.getSeasons().size();i++) {
+                    System.out.print(tv.getSeasons().get(i).getId());
+                    System.out.println(rs.getInt("idSeason"));
                     if((tv.getSeasons().get(i).getId()) == (rs.getInt("idSeason"))) {
                         Episode e = new Episode();
                         e.setName(rs.getString("episodeName"));
