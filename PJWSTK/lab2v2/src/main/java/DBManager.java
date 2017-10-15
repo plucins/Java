@@ -7,6 +7,9 @@ public class DBManager {
     Connection connection;
     private PreparedStatement getTvSeriesStatement;
     private PreparedStatement getSeasonStatement;
+    private PreparedStatement getEpisodeStatement;
+
+    public Season s;
 
     String url = "jdbc:mysql://sql.s13.vdl.pl/plucins_pjwstk";
     String username = "plucins_pjwstk";
@@ -17,8 +20,9 @@ public class DBManager {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, username, password);
 
-            getTvSeriesStatement = connection.prepareStatement("SELECT id,tvSeriesName FROM TvSeries");
+            getTvSeriesStatement = connection.prepareStatement("SELECT * FROM TvSeries");
             getSeasonStatement = connection.prepareStatement("SELECT * FROM Season");
+            getEpisodeStatement = connection.prepareStatement("SELECT * FROM Episode");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -41,16 +45,19 @@ public class DBManager {
 
     }
 
-    public TvSeries getBreakingBadInfo() {
-        List<Season> seasons = new ArrayList<Season>();
+    public TvSeries getSeasonInfo() {
+        List<Season> seasons = new ArrayList<>();
         TvSeries tv = null;
         try {
             ResultSet rs = getSeasonStatement.executeQuery();
             while (rs.next()) {
-                Season s = new Season();
-                s.setSeasonNumber(rs.getInt("seasonNumber"));
-                s.setYearOfrelease(rs.getInt("seasonYearOfrelease"));
-                seasons.add(s);
+                if(rs.getInt("idTvSeries") == 2) {
+                    s = new Season();
+                    s.setSeasonNumber(rs.getInt("seasonNumber"));
+                    s.setYearOfrelease(rs.getInt("seasonYearOfrelease"));
+                    s.setId(rs.getInt("id"));
+                    seasons.add(s);
+                }
             }
 
             rs = getTvSeriesStatement.executeQuery();
@@ -66,6 +73,32 @@ public class DBManager {
             e.printStackTrace();
         }
         return tv;
+    }
+
+    public Season getEpisodInfo(TvSeries tv) {
+        List<Episode> episodes = new ArrayList<>();
+        try {
+            ResultSet rs = getEpisodeStatement.executeQuery();
+            while (rs.next()) {
+                for(int i=0; i < tv.getSeasons().size();i++) {
+                    if((tv.getSeasons().get(i).getId()) == (rs.getInt("idSeason"))) {
+                        Episode e = new Episode();
+                        e.setName(rs.getString("episodeName"));
+                        e.setReleaseDate(rs.getDate("episodeReleaseDate").toLocalDate());
+                        e.setEpisodeNumber(rs.getInt("episodeNumber"));
+                        e.setDuration(rs.getString("episodeDuration"));
+                        episodes.add(e);
+                    }
+                    else {
+                        tv.getSeasons().get(i).setId(0);
+                    }
+                }
+            }
+            s.setEpisodes(episodes);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return s;
     }
 
 
