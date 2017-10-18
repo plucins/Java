@@ -13,6 +13,7 @@ public class test {
         db.getSeasonName();
         int chose = sc.nextInt();
         sc.nextLine();
+        System.out.println(db.getDirectorInfo(chose));
         System.out.println(db.getTvSeriesInfo(chose));
         System.out.println(db.getSeasonInfo().getSeasons());
         tv = db.getSeasonInfo();

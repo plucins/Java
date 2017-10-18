@@ -8,6 +8,7 @@ public class DBManager {
     private PreparedStatement getTvSeriesStatement;
     private PreparedStatement getSeasonStatement;
     private PreparedStatement getEpisodeStatement;
+    private PreparedStatement getDirectorStatement;
 
     public Season s;
     TvSeries tv = null;
@@ -22,8 +23,9 @@ public class DBManager {
             connection = DriverManager.getConnection(url, username, password);
 
             getTvSeriesStatement = connection.prepareStatement("SELECT * FROM TvSeries");
-            getSeasonStatement = connection.prepareStatement("SELECT * FROM Season");
+            getSeasonStatement = connection.prepareStatement("SELECT * FROM Season ");
             getEpisodeStatement = connection.prepareStatement("SELECT * FROM Episode");
+            getDirectorStatement = connection.prepareStatement("SELECT * FROM Director");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,19 +89,14 @@ public class DBManager {
         try {
             ResultSet rs = getEpisodeStatement.executeQuery();
             while (rs.next()) {
-                for(int i=0; i < tv.getSeasons().size();i++) {
-                    System.out.print(tv.getSeasons().get(i).getId());
-                    System.out.println(rs.getInt("idSeason"));
-                    if((tv.getSeasons().get(i).getId()) == (rs.getInt("idSeason"))) {
+                for (int i = 0; i < tv.getSeasons().size(); i++) {
+                    if ((tv.getSeasons().get(i).getId()) == (rs.getInt("idSeason"))) {
                         Episode e = new Episode();
                         e.setName(rs.getString("episodeName"));
                         e.setReleaseDate(rs.getDate("episodeReleaseDate").toLocalDate());
                         e.setEpisodeNumber(rs.getInt("episodeNumber"));
                         e.setDuration(rs.getString("episodeDuration"));
                         episodes.add(e);
-                    }
-                    else {
-                        tv.getSeasons().get(i).setId(0);
                     }
                 }
             }
@@ -110,5 +107,25 @@ public class DBManager {
         return s;
     }
 
+    public Director getDirectorInfo(int chose){
+        Director d = null;
+        try{
+            ResultSet rs = getDirectorStatement.executeQuery();
+            while(rs.next()){
+                System.out.println(rs.getInt("idTvSeries"));
+                if(rs.getInt("idTvSeries") == chose) {
+                    d = new Director();
+                    d.setDirectorName(rs.getString("directorName"));
+                    d.setDirectorDayOfBirth(rs.getDate("directorDayOfBirth").toLocalDate());
+                    d.setDirectorBiography(rs.getString("directorBiography"));
+                }
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return d;
+    }
+
 
 }
+
