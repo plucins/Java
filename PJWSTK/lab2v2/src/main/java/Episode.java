@@ -41,11 +41,6 @@ public class Episode {
 
     @Override
     public String toString() {
-        return "Episode{" +
-                "name='" + name + '\'' +
-                ", releaseDate=" + releaseDate +
-                ", episodeNumber=" + episodeNumber +
-                ", duration='" + duration + '\'' +
-                '}';
+        return "Nazwa: " + name + ", Data Produkcji: " + releaseDate + ", Numer Odcinka: " + episodeNumber + ", czas trwania: " + duration;
     }
 }

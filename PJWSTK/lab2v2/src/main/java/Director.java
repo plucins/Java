@@ -33,10 +33,8 @@ public class Director {
 
     @Override
     public String toString() {
-        return "Director{" +
-                "directorName='" + directorName + '\'' +
-                ", directorDayOfBirth=" + directorDayOfBirth +
-                ", directorBiography='" + directorBiography + '\'' +
-                '}';
+        return "Reżyser: " + directorName + '\'' +
+                ", Data urodzenie: " + directorDayOfBirth +
+                ", Biografia: " + directorBiography;
     }
 }

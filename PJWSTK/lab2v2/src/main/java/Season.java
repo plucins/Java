@@ -41,15 +41,7 @@ public class Season {
 
     @Override
     public String toString() {
-        return "Season{" +
-                "id=" + id +
-                ", seasonNumber=" + seasonNumber +
-                ", yearOfrelease=" + yearOfrelease +
-                '}';
+        return "Numer: " + seasonNumber + ", Rok Produkcji: " + yearOfrelease;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
 }

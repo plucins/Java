@@ -31,9 +31,6 @@ public class TvSeries {
 
     @Override
     public String toString() {
-        return "TvSeries{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Nazwa serialu:  " + name;
     }
 }
