@@ -9,6 +9,7 @@ public class DBManager {
     private PreparedStatement getSeasonStatement;
     private PreparedStatement getEpisodeStatement;
     private PreparedStatement getDirectorStatement;
+    private PreparedStatement getActorStatement;
 
     public Season s;
     TvSeries tv = null;
@@ -26,6 +27,7 @@ public class DBManager {
             getSeasonStatement = connection.prepareStatement("SELECT * FROM Season ");
             getEpisodeStatement = connection.prepareStatement("SELECT * FROM Episode");
             getDirectorStatement = connection.prepareStatement("SELECT * FROM Director");
+            getActorStatement = connection.prepareStatement("SELECT * FROM Actor");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -125,6 +127,30 @@ public class DBManager {
         }
         return d;
     }
+
+    public Actor getActirInfo(int chose){
+        List<Actor> actors = new ArrayList<>();
+        Actor a = null;
+        try{
+            ResultSet rs = getActorStatement.executeQuery();
+            while(rs.next()) {
+                if (rs.getInt("idTvSeries") == chose) {
+                    a = new Actor();
+                    a.setActorName(rs.getString("actorName"));
+                    a.setActorDayOfBirth(rs.getDate("actorDayOfBirth").toLocalDate());
+                    a.setActorBiography(rs.getString("actorBiography"));
+                    actors.add(a);
+                }
+            }
+            a.setActors(actors);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return a;
+
+    }
+
+
 
 
 }

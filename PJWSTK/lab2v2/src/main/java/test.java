@@ -15,6 +15,7 @@ public class test {
         sc.nextLine();
         System.out.println(db.getDirectorInfo(chose));
         System.out.println(db.getTvSeriesInfo(chose));
+        System.out.println(db.getActirInfo(chose).getActors());
         System.out.println(db.getSeasonInfo().getSeasons());
         tv = db.getSeasonInfo();
         System.out.println(db.getEpisodInfo(tv).getEpisodes());
