@@ -1,6 +1,5 @@
 import javax.xml.crypto.Data;
 import java.sql.*;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -8,9 +7,9 @@ import java.util.Scanner;
 public class AddDataManager {
 
     Scanner sc = new Scanner(System.in);
-    TvSeries tv = new TvSeries();
-    Director d = new Director();
-    Season s;
+    Data.TvSeries tv = new Data.TvSeries();
+    Data.Director d = new Data.Director();
+    Data.Season s;
 
 
     private PreparedStatement addTvSeriesStatement;
@@ -106,7 +105,7 @@ public class AddDataManager {
         while(count > 0){
             count--;
             actorNumber++;
-            Actor a = new Actor();
+            Data.Actor a = new Data.Actor();
             System.out.println("Podaj dane o aktorze nr. "+actorNumber);
             System.out.println("Imię i Nazwisko");
             a.setActorName(sc.nextLine());
@@ -141,7 +140,7 @@ public class AddDataManager {
             count--;
             seasonNumber++;
             System.out.println("Podaj dane o sezonie nr. " +seasonNumber);
-            s = new Season();
+            s = new Data.Season();
             System.out.println("Number sezozu");
             s.setSeasonNumber(sc.nextInt());
             System.out.println("Rok publikacji");
@@ -169,7 +168,7 @@ public class AddDataManager {
            while(episodeNumber > 0){
                episodeNumber--;
                number++;
-               Episode e = new Episode();
+               Data.Episode e = new Data.Episode();
                System.out.println("Podaj dane o epizodzie nr. " +number);
                System.out.println("Nazwa");
                e.setName(sc.nextLine());
