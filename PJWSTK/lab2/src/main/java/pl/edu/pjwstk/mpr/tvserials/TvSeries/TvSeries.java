@@ -1,17 +1,12 @@
+package pl.edu.pjwstk.mpr.tvserials.TvSeries;
+
+import pl.edu.pjwstk.mpr.tvserials.Season;
+
 import java.util.List;
 
 public class TvSeries {
-    private int id;
     private String name;
     private List<Season> seasons;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -27,10 +22,5 @@ public class TvSeries {
 
     public void setSeasons(List<Season> seasons) {
         this.seasons = seasons;
-    }
-
-    @Override
-    public String toString() {
-        return "Nazwa serialu:  " + name;
     }
 }

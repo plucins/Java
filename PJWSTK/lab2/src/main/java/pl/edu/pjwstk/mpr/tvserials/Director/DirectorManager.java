@@ -55,10 +55,6 @@ public class DirectorManager {
         }
     }
 
-    Connection getConnection(){
-        return connection;
-    }
-
     public void clearPersons(){
         try{
             deleteAllDirectorsSt.executeUpdate();
