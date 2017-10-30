@@ -2,11 +2,21 @@ package fields;
 
 import java.time.LocalDate;
 
-public class Director {
+public class Director implements DomainObject {
+    private int id;
     private String directorName;
     private LocalDate directorDayOfBirth;
     private String directorBiography;
     private int idTvSeries;
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getDirectorName() {
         return directorName;

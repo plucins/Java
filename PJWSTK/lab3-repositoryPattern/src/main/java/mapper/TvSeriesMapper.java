@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class TvSeriesMapper extends AbstractMapper<TvSeries> {
 
     private static final String COLUMNS = "id, tvSeriesName";
-    public static final String FIND = "SELECT " + COLUMNS + " FROM TvSeries WHEREid=?";
+    public static final String FIND = "SELECT " + COLUMNS + " FROM TvSeries WHERE id=?";
     public static final String INSERT = "INSERT INTO TvSeries(tvSeriesName) VALUES(?)";
     public static final String UPDATE = "UPDATE TvSeries SET(tvSeriesName)=(?) WHERE id=?";
     public static final String DELETE = "DELETE FROM TvSeries WHERE id=?";
@@ -50,7 +50,7 @@ public class TvSeriesMapper extends AbstractMapper<TvSeries> {
 
     @Override
     protected void parametrizeInsertStatement(PreparedStatement statement, TvSeries tv) throws SQLException {
-        statement.setString(2,tv.getName());
+        statement.setString(1,tv.getName());
     }
 
     @Override

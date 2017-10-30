@@ -2,10 +2,11 @@ package repo;
 
 import fields.TvSeries;
 import mapper.TvSeriesMapper;
+import repoInterface.IRepository;
 
 import java.sql.Connection;
 
-public class TvSeriesRepository {
+public class TvSeriesRepository implements IRepository<TvSeries> {
 
     private Connection connection;
     private TvSeriesMapper tvSeriesMapper;
@@ -19,7 +20,7 @@ public class TvSeriesRepository {
         tvSeriesMapper.add(tv);
     }
 
-    public void modify(TvSeries tv){
+    public void update(TvSeries tv){
         tvSeriesMapper.update(tv);
     }
 
@@ -27,7 +28,7 @@ public class TvSeriesRepository {
         tvSeriesMapper.remove((long) tv.getId());
     }
 
-    public TvSeries find(int id){
+    public TvSeries GetById(int id){
         return tvSeriesMapper.find((long) id);
     }
 }
