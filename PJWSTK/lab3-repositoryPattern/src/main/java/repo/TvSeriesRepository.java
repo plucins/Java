@@ -16,8 +16,9 @@ public class TvSeriesRepository implements IRepository<TvSeries> {
         this.tvSeriesMapper = new TvSeriesMapper(connection);
     }
 
-    public void add(TvSeries tv){
-        tvSeriesMapper.add(tv);
+    public int add(TvSeries tv){
+        int key = tvSeriesMapper.add(tv);
+        return key;
     }
 
     public void update(TvSeries tv){

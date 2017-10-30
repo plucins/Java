@@ -60,10 +60,7 @@ public class DirectorMapper extends AbstractMapper<Director> {
     @Override
     protected void parametrizeUpdateStatement(PreparedStatement statement, Director d) throws SQLException {
         parametrizeInsertStatement(statement, d);
-        statement.setString(1,d.getDirectorName());
-        statement.setDate(2,java.sql.Date.valueOf(d.getDirectorDayOfBirth()));
-        statement.setString(3,d.getDirectorBiography());
-        statement.setLong(4,d.getId());
+        statement.setLong(1,d.getId());
     }
 
 

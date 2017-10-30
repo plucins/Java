@@ -1,4 +1,5 @@
 import fields.TvSeries;
+import repo.DirectorRepository;
 import repo.TvSeriesRepository;
 
 import java.sql.Connection;
@@ -16,12 +17,14 @@ public class Run {
         try(Connection connection = DriverManager.getConnection(url,username,password)) {
 
             TvSeriesRepository tv = new TvSeriesRepository(connection);
+            DirectorRepository d = new DirectorRepository(connection);
 
             TvSeries tvSeries1 = new TvSeries();
+            tvSeries1.setName("cos");
 
-            tvSeries1 = tv.GetById(11);
+            int key = tv.add(tvSeries1);
 
-            System.out.println(tvSeries1);
+            System.out.println(key);
 
 
 

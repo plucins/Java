@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.sql.Statement.RETURN_GENERATED_KEYS;
+
 public abstract class AbstractMapper<T extends DomainObject> {
     private Map<Long, T> loadedMap = new HashMap<Long, T>();
     protected Connection connection;
@@ -44,15 +46,25 @@ public abstract class AbstractMapper<T extends DomainObject> {
         }
     }
 
-    public void add(T entity){
+    public int add(T entity){
         PreparedStatement addStatement = null;
+        int key = 0;
         try{
-            addStatement = connection.prepareStatement(insertStatement());
+            addStatement = connection.prepareStatement(insertStatement(),RETURN_GENERATED_KEYS);
             parametrizeInsertStatement(addStatement,entity);
-            addStatement.executeUpdate();
+            int updated = addStatement.executeUpdate();
+
+            if (updated == 1) {
+                ResultSet generatedKeys = addStatement.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    key = generatedKeys.getInt(1);
+                }
+            }
+
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
+        return key;
     }
 
     public void update(T entity){
