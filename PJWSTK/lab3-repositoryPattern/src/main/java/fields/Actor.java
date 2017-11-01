@@ -3,11 +3,30 @@ package fields;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Actor {
+public class Actor implements DomainObject {
+    private int id;
     private String actorName;
     private LocalDate actorDayOfBirth;
     private String actorBiography;
+    private int idTvSeries;
     private List<Actor> actors;
+
+    public int getIdTvSeries() {
+        return idTvSeries;
+    }
+
+    public void setIdTvSeries(int idTvSeries) {
+        this.idTvSeries = idTvSeries;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getActorName() {
         return actorName;

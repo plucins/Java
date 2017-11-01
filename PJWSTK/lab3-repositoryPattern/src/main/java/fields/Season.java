@@ -2,11 +2,20 @@ package fields;
 
 import java.util.List;
 
-public class Season {
+public class Season implements DomainObject {
     private int id;
+    private int idTvSeries;
     private int seasonNumber;
     private int seasonYearOfRelease;
     private List<Episode> episodes;
+
+    public int getIdTvSeries() {
+        return idTvSeries;
+    }
+
+    public void setIdTvSeries(int idTvSeries) {
+        this.idTvSeries = idTvSeries;
+    }
 
     public int getId() {
         return id;

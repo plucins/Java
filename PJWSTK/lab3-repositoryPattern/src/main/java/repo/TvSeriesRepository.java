@@ -17,8 +17,7 @@ public class TvSeriesRepository implements IRepository<TvSeries> {
     }
 
     public int add(TvSeries tv){
-        int key = tvSeriesMapper.add(tv);
-        return key;
+        return tvSeriesMapper.add(tv);
     }
 
     public void update(TvSeries tv){

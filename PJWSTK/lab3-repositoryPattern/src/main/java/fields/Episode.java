@@ -4,11 +4,30 @@ package fields;
 import java.time.Duration;
 import java.time.LocalDate;
 
-public class Episode {
+public class Episode implements DomainObject {
     private String episodeName;
     private LocalDate episodeReleaseDate;
     private int episodeNumber;
-    private Duration episodeDuration;
+    private String episodeDuration;
+    private int idSeason;
+    private int id;
+
+    public int getIdSeason() {
+        return idSeason;
+    }
+
+    public void setIdSeason(int idSeason) {
+        this.idSeason = idSeason;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getEpisodeName() {
         return episodeName;
@@ -34,11 +53,11 @@ public class Episode {
         this.episodeNumber = episodeNumber;
     }
 
-    public Duration getEpisodeDuration() {
+    public String getEpisodeDuration() {
         return episodeDuration;
     }
 
-    public void setEpisodeDuration(Duration episodeDuration) {
+    public void setEpisodeDuration(String episodeDuration) {
         this.episodeDuration = episodeDuration;
     }
 

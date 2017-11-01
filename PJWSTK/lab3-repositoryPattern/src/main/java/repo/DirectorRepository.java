@@ -24,8 +24,7 @@ public class DirectorRepository implements IRepository<Director> {
 
     @Override
     public int add(Director entity) {
-        int key = directorMapper.add(entity);
-        return key;
+        return directorMapper.add(entity);
     }
 
     @Override

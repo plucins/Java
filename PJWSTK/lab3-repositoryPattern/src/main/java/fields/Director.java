@@ -49,4 +49,15 @@ public class Director implements DomainObject {
     public void setIdTvSeries(int idTvSeries) {
         this.idTvSeries = idTvSeries;
     }
+
+    @Override
+    public String toString() {
+        return "Director{" +
+                "id=" + id +
+                ", directorName='" + directorName + '\'' +
+                ", directorDayOfBirth=" + directorDayOfBirth +
+                ", directorBiography='" + directorBiography + '\'' +
+                ", idTvSeries=" + idTvSeries +
+                '}';
+    }
 }

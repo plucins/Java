@@ -1,10 +1,15 @@
+import fields.Actor;
+import fields.Director;
 import fields.TvSeries;
+import repo.ActorRepository;
 import repo.DirectorRepository;
 import repo.TvSeriesRepository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Run {
 
@@ -16,20 +21,39 @@ public class Run {
 
         try(Connection connection = DriverManager.getConnection(url,username,password)) {
 
+
+            ActorRepository actor = new ActorRepository(connection);
             TvSeriesRepository tv = new TvSeriesRepository(connection);
-            DirectorRepository d = new DirectorRepository(connection);
+            TvSeries tvSeries = new TvSeries();
+            tvSeries.setName("asd");
+            int key = tv.add(tvSeries);
 
-            TvSeries tvSeries1 = new TvSeries();
-            tvSeries1.setName("cos");
+            Actor a = new Actor();
+            a.setActorName("asd");
+            a.setActorDayOfBirth(dateInput("1993-01-01"));
+            a.setActorBiography("asdasdasd");
+            a.setIdTvSeries(key);
+            actor.add(a);
+            System.out.println(a);
+            a.setActorName("dsa");
+            a.setActorDayOfBirth(dateInput("1999-01-01"));
+            a.setActorBiography("dsa");
+            a.setIdTvSeries(key);
+            actor.update(a);
 
-            int key = tv.add(tvSeries1);
-
-            System.out.println(key);
 
 
 
         }catch(SQLException e){
             e.printStackTrace();
         }
+    }
+
+    public static LocalDate dateInput(String userInput) {
+
+
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-M-d");
+        LocalDate date = LocalDate.parse(userInput, dateFormat);
+        return date ;
     }
 }
