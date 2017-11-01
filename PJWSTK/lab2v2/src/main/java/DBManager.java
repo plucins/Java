@@ -4,9 +4,9 @@ public class DBManager {
 
     Connection connection;
 
-    String url = "jdbc:mysql://sql.s13.vdl.pl/plucins_pjwstk";
-    String username = "plucins_pjwstk";
-    String password = "zaq1!QAZ";
+    String url = "";
+    String username = "";
+    String password = "";
 
     public Connection establishConnection() {
         try {
