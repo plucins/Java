@@ -61,9 +61,10 @@ public class UnityOfWork implements IUnityOfWork {
     }
 
     @Override
-    public void markAsNew(Entity entity, IUnityOfWorkRepository repository) {
+    public int markAsNew(Entity entity, IUnityOfWorkRepository repository) {
         entity.setState(EntityState.New);
         entities.put(entity,repository);
+        return 0;
     }
 
     @Override
