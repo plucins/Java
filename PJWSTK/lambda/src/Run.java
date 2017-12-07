@@ -18,7 +18,8 @@ public class Run {
         //us.printCapitalizedPermissionNamesOfUsersWithSurnameStartingWithS(users);
         //System.out.println(us.groupUsersByRole(users));
         //System.out.println(us.partitionUserByUnderAndOver18(users));
-        System.out.println(us.getSortedPermissionsOfUsersWithNameStartingWithA(users));
+        //System.out.println(us.getSortedPermissionsOfUsersWithNameStartingWithA(users));
+        System.out.println(us.getNamesAndSurnamesCommaSeparatedOfAllUsersAbove18(users));
 
     }
 }

@@ -28,7 +28,10 @@ public class UserService {
     }
 
     public static String getNamesAndSurnamesCommaSeparatedOfAllUsersAbove18(List<User> users) {
-        return null;
+        return users.stream().filter(u -> u.getPersonDetails().getAge() < 18)
+                .map(u -> u.getPersonDetails().getName() + " " + u.getPersonDetails().getSurname())
+                .collect(Collectors.joining(", "));
+
 
     }
 
