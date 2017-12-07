@@ -13,7 +13,6 @@ public class UserService {
     public static List<User> findUsersWhoHaveMoreThanOneAddress(List<User> users) {
         return users.stream().filter(u -> u.getPersonDetails().getAddresses().size() > 1)
                 .collect(Collectors.toList());
-
     }
 
     public static User findOldestPerson(List<User> users) {
@@ -31,8 +30,6 @@ public class UserService {
         return users.stream().filter(u -> u.getPersonDetails().getAge() < 18)
                 .map(u -> u.getPersonDetails().getName() + " " + u.getPersonDetails().getSurname())
                 .collect(Collectors.joining(", "));
-
-
     }
 
     public static List<String> getSortedPermissionsOfUsersWithNameStartingWithA(List<User> users) {
@@ -40,16 +37,12 @@ public class UserService {
                 .map(u -> u.getPersonDetails().getRole().getPermissions().toString())
                 .sorted()
                 .collect(Collectors.toList());
-
-
-
     }
 
     public static void printCapitalizedPermissionNamesOfUsersWithSurnameStartingWithS(List<User> users) {
         users.stream().filter(u -> u.getPersonDetails().getSurname().startsWith("S"))
                 .map(u -> u.getPersonDetails().getRole().getName().toUpperCase())
                 .forEach(System.out::println);
-
     }
 
     public static Map<Role, List<User>> groupUsersByRole(List<User> users) {
