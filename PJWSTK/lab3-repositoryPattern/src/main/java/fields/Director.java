@@ -9,6 +9,17 @@ public class Director implements DomainObject {
     private String directorBiography;
     private int idTvSeries;
 
+    public Director(int id, String directorName, LocalDate directorDayOfBirth, String directorBiography, int idTvSeries) {
+        this.id = id;
+        this.directorName = directorName;
+        this.directorDayOfBirth = directorDayOfBirth;
+        this.directorBiography = directorBiography;
+        this.idTvSeries = idTvSeries;
+    }
+
+    public Director() {
+    }
+
     @Override
     public int getId() {
         return id;
