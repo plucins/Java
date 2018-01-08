@@ -8,9 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.time.LocalDate;
 
 import static org.mockito.Mockito.mock;
@@ -24,6 +26,7 @@ public class DirectorRepositoryTest {
     Connection c;
     DBConnection connection;
     AbstractMapper<Director> mapper;
+    DirectorRepository directorRepository;
 
     @Mock
     private Director d;
@@ -32,7 +35,7 @@ public class DirectorRepositoryTest {
     public void setup(){
 
         LocalDate date = LocalDate.now();
-        d = new Director();
+        Director d = mock(Director.class);
         d.setId(1);
         d.setDirectorName("John");
         d.setDirectorBiography("bio");
@@ -49,7 +52,6 @@ public class DirectorRepositoryTest {
         //given
 
         //when
-        when(connection.getConnection()).thenReturn(c);
         when(mapper.add(d)).thenReturn(1);
         //then
         Assert.assertEquals(1,mapper.add(d));
@@ -58,6 +60,15 @@ public class DirectorRepositoryTest {
     @Test
     public void add_null() throws Exception{
         Assert.assertEquals(0,mapper.add(null));
+    }
+
+    @Mock private Connection mockConnection;
+    @Mock private PreparedStatement mockStatement;
+
+    @Test (expected = NullPointerException.class)
+    public void remove_objectDoesntExist() throws Exception{
+        when(mockConnection.prepareStatement(Mockito.any()).executeUpdate()).thenReturn(0);
+        directorRepository.remove(null);
     }
 
 }

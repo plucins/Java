@@ -17,8 +17,8 @@
       <file leaf-file-name="DirectorRepositoryTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/repo/DirectorRepositoryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="52" column="42" lean-forward="true" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+            <state relative-caret-position="447">
+              <caret line="67" column="48" lean-forward="false" selection-start-line="67" selection-start-column="48" selection-end-line="67" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -29,8 +29,8 @@
       <file leaf-file-name="DirectorMapper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/mapper/DirectorMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="561">
+              <caret line="48" column="66" lean-forward="true" selection-start-line="48" selection-start-column="66" selection-end-line="48" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -39,11 +39,25 @@
       <file leaf-file-name="DirectorRepository.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/repo/DirectorRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="408">
+              <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
               <folding>
                 <element signature="e#598#599#0" expanded="true" />
                 <element signature="e#647#648#0" expanded="true" />
+                <element signature="e#704#705#0" expanded="true" />
+                <element signature="e#764#765#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mapper/AbstractMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="101" column="5" lean-forward="true" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
+              <folding>
+                <element signature="e#383#392#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,7 +95,6 @@
         <option value="$PROJECT_DIR$/src/main/java/IRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/TvSeriesRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/mapper/TvSeriesMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mapper/DirectorMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/fields/Actor.java" />
         <option value="$PROJECT_DIR$/src/main/java/mapper/ActorMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/fields/Episode.java" />
@@ -99,13 +112,14 @@
         <option value="$PROJECT_DIR$/src/main/java/Run.java" />
         <option value="$PROJECT_DIR$/src/main/java/repo/Repository.java" />
         <option value="$PROJECT_DIR$/src/main/java/repo/ActorRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/repo/DirectorRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/repo/EpisodeRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/repo/SeasonRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/repo/TvSeriesRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/mapper/AbstractMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/repoInterface/IRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/repo/DBConnection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/repo/DirectorRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mapper/DirectorMapper.java" />
         <option value="$PROJECT_DIR$/src/test/java/repo/DirectorRepositoryTest.java" />
       </list>
     </option>
@@ -124,9 +138,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="939" />
-    <option name="width" value="988" />
-    <option name="height" value="1040" />
+    <option name="x" value="778" />
+    <option name="width" value="1149" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -143,6 +157,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -353,9 +368,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -852,44 +866,45 @@
       <workItem from="1511087524308" duration="2344000" />
       <workItem from="1511440609145" duration="1355000" />
       <workItem from="1511981836049" duration="489000" />
-      <workItem from="1515307878517" duration="18375000" />
+      <workItem from="1515307878517" duration="18950000" />
+      <workItem from="1515439772151" duration="7579000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DirectorRepositoryTest - 2018.01.07 at 16h 52m 16s.xml">
+    <history-entry file="DirectorRepositoryTest - 2018.01.08 at 21h 32m 58s.xml">
       <configuration name="DirectorRepositoryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DirectorRepositoryTest - 2018.01.07 at 16h 57m 54s.xml">
+    <history-entry file="DirectorRepositoryTest - 2018.01.08 at 21h 34m 20s.xml">
       <configuration name="DirectorRepositoryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DirectorRepositoryTest - 2018.01.07 at 16h 58m 08s.xml">
+    <history-entry file="DirectorRepositoryTest - 2018.01.08 at 21h 34m 30s.xml">
       <configuration name="DirectorRepositoryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DirectorRepositoryTest - 2018.01.07 at 16h 58m 37s.xml">
+    <history-entry file="DirectorRepositoryTest - 2018.01.08 at 22h 08m 20s.xml">
       <configuration name="DirectorRepositoryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DirectorRepositoryTest - 2018.01.07 at 16h 58m 52s.xml">
+    <history-entry file="DirectorRepositoryTest - 2018.01.08 at 22h 08m 39s.xml">
       <configuration name="DirectorRepositoryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DirectorRepositoryTest - 2018.01.07 at 16h 59m 29s.xml">
+    <history-entry file="DirectorRepositoryTest - 2018.01.08 at 22h 09m 54s.xml">
       <configuration name="DirectorRepositoryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DirectorRepositoryTest - 2018.01.07 at 16h 59m 59s.xml">
+    <history-entry file="DirectorRepositoryTest - 2018.01.08 at 22h 34m 08s.xml">
       <configuration name="DirectorRepositoryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DirectorRepositoryTest - 2018.01.07 at 17h 00m 12s.xml">
+    <history-entry file="DirectorRepositoryTest - 2018.01.08 at 22h 44m 23s.xml">
       <configuration name="DirectorRepositoryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DirectorRepositoryTest - 2018.01.07 at 17h 00m 55s.xml">
+    <history-entry file="DirectorRepositoryTest - 2018.01.08 at 22h 44m 33s.xml">
       <configuration name="DirectorRepositoryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DirectorRepositoryTest - 2018.01.07 at 17h 01m 05s.xml">
+    <history-entry file="DirectorRepositoryTest - 2018.01.08 at 22h 45m 12s.xml">
       <configuration name="DirectorRepositoryTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47350000" />
+    <option name="totallyTimeSpent" value="55504000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -901,7 +916,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="939" y="0" width="988" height="1040" extended-state="0" />
+    <frame x="778" y="0" width="1149" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -914,14 +929,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2077185" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20945945" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18103448" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22038567" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -933,6 +947,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1123,8 +1138,8 @@
         <state relative-caret-position="323">
           <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
           <folding>
-            <element signature="e#853#854#0" expanded="true" />
-            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#853#854#0" expanded="false" />
+            <element signature="e#882#883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1150,8 +1165,8 @@
         <state relative-caret-position="323">
           <caret line="25" column="14" lean-forward="false" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="14" />
           <folding>
-            <element signature="e#585#586#0" expanded="true" />
-            <element signature="e#633#634#0" expanded="true" />
+            <element signature="e#585#586#0" expanded="false" />
+            <element signature="e#633#634#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1170,8 +1185,8 @@
           <caret line="48" column="14" lean-forward="false" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1656#1657#0" expanded="true" />
-            <element signature="e#1705#1706#0" expanded="true" />
+            <element signature="e#1656#1657#0" expanded="false" />
+            <element signature="e#1705#1706#0" expanded="false" />
             <marker date="1515335968653" expanded="true" signature="973:1020" ph="SELECT * FRO... missingValue" />
             <marker date="1515335968653" expanded="true" signature="1057:1102" ph="DELETE FROM " />
           </folding>
@@ -1183,8 +1198,8 @@
         <state relative-caret-position="238">
           <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="20" selection-end-column="5" />
           <folding>
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#517#518#0" expanded="true" />
+            <element signature="e#472#473#0" expanded="false" />
+            <element signature="e#517#518#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1194,8 +1209,8 @@
         <state relative-caret-position="391">
           <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="e#575#576#0" expanded="true" />
-            <element signature="e#622#623#0" expanded="true" />
+            <element signature="e#575#576#0" expanded="false" />
+            <element signature="e#622#623#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1205,8 +1220,8 @@
         <state relative-caret-position="306">
           <caret line="24" column="14" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="14" />
           <folding>
-            <element signature="e#561#562#0" expanded="true" />
-            <element signature="e#607#608#0" expanded="true" />
+            <element signature="e#561#562#0" expanded="false" />
+            <element signature="e#607#608#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1225,7 +1240,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1233,7 +1247,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="497" column="0" lean-forward="false" selection-start-line="497" selection-start-column="0" selection-end-line="497" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1241,7 +1254,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1249,10 +1261,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#869#1062#0" expanded="true" />
-            <element signature="e#1061#1062#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1260,7 +1268,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1268,7 +1275,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
           <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1276,7 +1282,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="231" column="0" lean-forward="false" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1284,49 +1289,52 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/repoInterface/IRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="8" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mapper/AbstractMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="52" column="94" lean-forward="false" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="94" />
+        <state relative-caret-position="102">
+          <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/repo/DirectorRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="408">
+          <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
           <folding>
             <element signature="e#598#599#0" expanded="true" />
             <element signature="e#647#648#0" expanded="true" />
+            <element signature="e#704#705#0" expanded="true" />
+            <element signature="e#764#765#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mapper/DirectorMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="561">
+          <caret line="48" column="66" lean-forward="true" selection-start-line="48" selection-start-column="66" selection-end-line="48" selection-end-column="66" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mapper/AbstractMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="101" column="5" lean-forward="true" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
+          <folding>
+            <element signature="e#383#392#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/repo/DirectorRepositoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="52" column="42" lean-forward="true" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+        <state relative-caret-position="447">
+          <caret line="67" column="48" lean-forward="false" selection-start-line="67" selection-start-column="48" selection-end-line="67" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

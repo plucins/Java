@@ -50,6 +50,7 @@ public class DirectorMapper extends AbstractMapper<Director> {
         return d;
     }
 
+
     @Override
     protected void parametrizeInsertStatement(PreparedStatement statement, Director d) throws SQLException {
         statement.setString(1,d.getDirectorName());
