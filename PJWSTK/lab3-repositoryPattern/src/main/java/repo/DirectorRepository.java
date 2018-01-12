@@ -29,7 +29,7 @@ public class DirectorRepository implements IRepository<Director> {
 
     @Override
     public void remove(Director entity) {
-        directorMapper.remove((long) entity.getId());
+        directorMapper.remove((long) 1);
     }
 
     @Override

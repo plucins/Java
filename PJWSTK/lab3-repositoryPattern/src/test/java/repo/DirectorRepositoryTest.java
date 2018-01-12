@@ -2,73 +2,92 @@ package repo;
 
 
 import fields.Director;
-import mapper.AbstractMapper;
-import org.junit.Assert;
+import mapper.DirectorMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.stubbing.Answer;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.time.Month;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DirectorRepositoryTest {
 
+    @Mock
+    Connection connection;
 
     @Mock
-    Connection c;
-    DBConnection connection;
-    AbstractMapper<Director> mapper;
-    DirectorRepository directorRepository;
+    PreparedStatement preparedStatement;
 
     @Mock
-    private Director d;
+    ResultSet resultSet;
 
+    @Mock
+    DirectorMapper directorMapper;
+
+    Director director;
     @Before
-    public void setup(){
+    public void setup() throws Exception {
+        when(connection.prepareStatement(any(String.class),anyInt())).thenReturn(preparedStatement);
 
-        LocalDate date = LocalDate.now();
-        Director d = mock(Director.class);
-        d.setId(1);
-        d.setDirectorName("John");
-        d.setDirectorBiography("bio");
-        d.setDirectorDayOfBirth(date);
-        d.setIdTvSeries(1);
+        director = new Director();
+        director.setId(1);
+        director.setDirectorDayOfBirth(LocalDate.of(1993, Month.JANUARY, 1));
+        director.setDirectorBiography("bio");
+        director.setDirectorName("Name");
+        director.setIdTvSeries(2);
 
-        mapper = mock(AbstractMapper.class);
-        connection = mock(DBConnection.class);
-    }
+        when(resultSet.getInt(1)).thenReturn(1);
+        when(resultSet.getString(2)).thenReturn(director.getDirectorName());
+        when(resultSet.getDate(3)).thenReturn(Date.valueOf(director.getDirectorDayOfBirth()));
+        when(resultSet.getString(4)).thenReturn(director.getDirectorBiography());
+        when(preparedStatement.executeQuery()).thenReturn(resultSet);
 
 
-    @Test
-    public void add() throws Exception {
-        //given
-
-        //when
-        when(mapper.add(d)).thenReturn(1);
-        //then
-        Assert.assertEquals(1,mapper.add(d));
     }
 
     @Test
-    public void add_null() throws Exception{
-        Assert.assertEquals(0,mapper.add(null));
+    public void create(){
+        new DirectorRepository(connection).add(director);
     }
-
-    @Mock private Connection mockConnection;
-    @Mock private PreparedStatement mockStatement;
 
     @Test (expected = NullPointerException.class)
-    public void remove_objectDoesntExist() throws Exception{
-        when(mockConnection.prepareStatement(Mockito.any()).executeUpdate()).thenReturn(0);
-        directorRepository.remove(null);
+    public void create_nullPassed(){
+        new DirectorRepository(connection).add(null);
     }
+
+    @Test
+    public void remove() throws Exception{
+        //doNothing().when()
+        //new DirectorRepository(connection).remove(director);
+
+        director.setDirectorName("Adam");
+        director.setDirectorBiography("nieznany");
+        director.setDirectorDayOfBirth(LocalDate.of(1987,Month.JANUARY,1));
+
+        doAnswer((Answer) invocation -> {
+            Object arg = invocation.getArguments();
+            System.out.println(arg);
+
+            return arg;
+        }).when(directorMapper).parametrizeInsertStatement(preparedStatement,director);
+
+        doNothing().when(directorMapper).parametrizeInsertStatement(preparedStatement,director);
+        doNothing().when(directorMapper).parametrizeUpdateStatement(preparedStatement,director);
+
+        new DirectorRepository(connection).update(director);
+    }
+
+
+
 
 }
