@@ -41,7 +41,7 @@ public class DirectorMapper extends AbstractMapper<Director> {
     }
 
     @Override
-    protected Director doLoad(ResultSet rs) throws SQLException {
+    public Director doLoad(ResultSet rs) throws SQLException {
         Director d = new Director();
         d.setId(rs.getInt("id"));
         d.setDirectorName(rs.getString("directorName"));

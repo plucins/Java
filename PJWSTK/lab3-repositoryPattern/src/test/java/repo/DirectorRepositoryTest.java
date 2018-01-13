@@ -2,13 +2,12 @@ package repo;
 
 
 import fields.Director;
-import mapper.DirectorMapper;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.mockito.stubbing.Answer;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -16,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Map;
 
 import static org.mockito.Mockito.*;
 
@@ -32,11 +32,18 @@ public class DirectorRepositoryTest {
     ResultSet resultSet;
 
     @Mock
-    DirectorMapper directorMapper;
+    Map<Long, Director> loadedMap;
 
     Director director;
+
+    DirectorRepository directorRepo;
     @Before
     public void setup() throws Exception {
+        directorRepo = new DirectorRepository(connection);
+    }
+
+    @Test
+    public void create() throws Exception{
         when(connection.prepareStatement(any(String.class),anyInt())).thenReturn(preparedStatement);
 
         director = new Director();
@@ -46,46 +53,69 @@ public class DirectorRepositoryTest {
         director.setDirectorName("Name");
         director.setIdTvSeries(2);
 
-        when(resultSet.getInt(1)).thenReturn(1);
-        when(resultSet.getString(2)).thenReturn(director.getDirectorName());
-        when(resultSet.getDate(3)).thenReturn(Date.valueOf(director.getDirectorDayOfBirth()));
-        when(resultSet.getString(4)).thenReturn(director.getDirectorBiography());
-        when(preparedStatement.executeQuery()).thenReturn(resultSet);
-
-
-    }
-
-    @Test
-    public void create(){
         new DirectorRepository(connection).add(director);
     }
 
     @Test (expected = NullPointerException.class)
-    public void create_nullPassed(){
+    public void createNullPassed(){
+
         new DirectorRepository(connection).add(null);
     }
 
     @Test
     public void remove() throws Exception{
-        //doNothing().when()
-        //new DirectorRepository(connection).remove(director);
 
-        director.setDirectorName("Adam");
-        director.setDirectorBiography("nieznany");
-        director.setDirectorDayOfBirth(LocalDate.of(1987,Month.JANUARY,1));
+        when(connection.prepareStatement(any())).thenReturn(preparedStatement);
 
-        doAnswer((Answer) invocation -> {
-            Object arg = invocation.getArguments();
-            System.out.println(arg);
-
-            return arg;
-        }).when(directorMapper).parametrizeInsertStatement(preparedStatement,director);
-
-        doNothing().when(directorMapper).parametrizeInsertStatement(preparedStatement,director);
-        doNothing().when(directorMapper).parametrizeUpdateStatement(preparedStatement,director);
-
-        new DirectorRepository(connection).update(director);
+        directorRepo.remove(director);
     }
+
+    @Test (expected = NullPointerException.class)
+    public void removeNullPassed() throws Exception{
+
+        directorRepo.remove(null);
+    }
+
+    @Test
+    public void find() throws Exception {
+        Director d = new Director(1,"Adam",LocalDate.now(),"Bio",0);
+
+        when(connection.prepareStatement(any())).thenReturn(preparedStatement);
+        doNothing().when(preparedStatement).setLong(anyInt(),anyLong());
+        when(preparedStatement.executeQuery()).thenReturn(resultSet);
+
+        when(resultSet.getInt(any())).thenReturn(d.getId());
+        when(resultSet.getDate(any())).thenReturn(Date.valueOf(d.getDirectorDayOfBirth()));
+        when(resultSet.getString("directorName")).thenReturn(d.getDirectorName());
+        when(resultSet.getString("directorBiography")).thenReturn(d.getDirectorBiography());
+
+        Assert.assertEquals(d,directorRepo.GetById(1));
+    }
+
+
+    @Test
+    public void update() throws Exception {
+        Director temp = new Director(1,"Adam",LocalDate.now(),"Bio",1);
+        Director tempUpdated = new Director(1,"Jan",LocalDate.now(),"Brak",1);
+
+        when(connection.prepareStatement(any())).thenReturn(preparedStatement);
+
+        directorRepo.update(tempUpdated);
+
+        temp.setDirectorBiography("Brak");
+        temp.setDirectorName("Jan");
+
+        Assert.assertEquals(temp, tempUpdated);
+
+    }
+
+    @Test (expected = NullPointerException.class)
+    public void updateNullPassed() throws Exception {
+        when(connection.prepareStatement(any())).thenReturn(preparedStatement);
+        directorRepo.update(null);
+    }
+
+
 
 
 
