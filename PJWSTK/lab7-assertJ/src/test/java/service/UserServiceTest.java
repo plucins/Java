@@ -174,6 +174,7 @@ public class UserServiceTest {
         //when
          String valueFromMethod = us.getNamesAndSurnamesCommaSeparatedOfAllUsersAbove18(users);
         //then
+<<<<<<< HEAD
         assertThat(expectedValue.toString()).contains(valueFromMethod);
 
 
@@ -192,6 +193,10 @@ public class UserServiceTest {
     @Test (expected = IllegalArgumentException.class)
     public void getSortedPermissionsOfUsersWithNameStartingWithA_NullCollectionPassed() throws Exception {
         us.getSortedPermissionsOfUsersWithNameStartingWithA(nullList);
+=======
+        //assertThat(NamesAndSurnames).contains(usersAbove18.get(0).getPersonDetails().getName());
+        //TODO
+>>>>>>> c8b5b4f47e395a66daf89529170d5746b9559bb1
     }
 
     @Test
