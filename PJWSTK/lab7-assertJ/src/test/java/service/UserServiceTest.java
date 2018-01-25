@@ -7,8 +7,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import static org.apache.commons.lang.StringUtils.substringsBetween;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -163,22 +165,62 @@ public class UserServiceTest {
     @Test
     public void getNamesAndSurnamesCommaSeparatedOfAllUsersAbove18_CorrectCollectionPassed() throws Exception {
         //given
-        List<User> usersAbove18 = new ArrayList();
-        for(int i = 0; i < users.size(); i++){
-            if(users.get(i).getPersonDetails().getAge() > 18){
-                usersAbove18.add(users.get(i));
+        List<String> expectedValue = new ArrayList<>();
+        for(int i = 0; i < users.size();i++){
+            if(users.get(i).getPersonDetails().getAge() < 18){
+                expectedValue.add(users.get(i).getPersonDetails().getName()+" "+users.get(i).getPersonDetails().getSurname());
             }
         }
         //when
-
-        String NamesAndSurnames = us.getNamesAndSurnamesCommaSeparatedOfAllUsersAbove18(users);
+         String valueFromMethod = us.getNamesAndSurnamesCommaSeparatedOfAllUsersAbove18(users);
         //then
-        assertThat(NamesAndSurnames).contains(usersAbove18.get(0).getPersonDetails().getName());
+        assertThat(expectedValue.toString()).contains(valueFromMethod);
+
 
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void getSortedPermissionsOfUsersWithNameStartingWithA_NullPassed() throws Exception {
+        us.getSortedPermissionsOfUsersWithNameStartingWithA(null);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void getSortedPermissionsOfUsersWithNameStartingWithA_NullAsCollectionArgumentPassed() throws Exception {
+        us.getSortedPermissionsOfUsersWithNameStartingWithA(listWithNull);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void getSortedPermissionsOfUsersWithNameStartingWithA_NullCollectionPassed() throws Exception {
+        us.getSortedPermissionsOfUsersWithNameStartingWithA(nullList);
+    }
+
     @Test
-    public void getSortedPermissionsOfUsersWithNameStartingWithA() throws Exception {
+    public void getSortedPermissionsOfUsersWithNameStartingWithA_CorrectCollectionPassed() throws Exception {
+        //given
+        List<String> permisions = new ArrayList<>();
+        for(int i = 0; i < users.size();i++){
+            if(users.get(i).getName().startsWith("A")){
+                permisions.add(users.get(i).getPersonDetails().getRole().getPermissions().toString());
+            }
+        }
+        String expected ="";
+        String[] values = substringsBetween(permisions.toString(),"\'", "\'");
+        Arrays.sort(values);
+        for(int i =0; i< values.length;i++){
+            expected = expected + values[i]+" ";
+        }
+        //when
+        List<String> actualValue = new ArrayList<>();
+        actualValue = us.getSortedPermissionsOfUsersWithNameStartingWithA(users);
+
+        String actualStr = "";
+        String[] actual = substringsBetween(actualValue.toString(),"\'", "\'");
+        for(int i =0; i< values.length;i++){
+            Arrays.sort(actual);
+            actualStr = actualStr + actual[i]+ " ";
+        }
+        //then
+        assertThat(expected).contains(actualStr);
     }
 
     @Test

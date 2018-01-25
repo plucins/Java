@@ -48,10 +48,11 @@ public class UserService {
         if(users == null || users.contains(null) || users.size() == 0) {
             throw new IllegalArgumentException();
         }
-        return users.stream().filter(u -> u.getPersonDetails().getName().startsWith("A"))
-                .map(u -> u.getPersonDetails().getRole().getPermissions().toString())
-                .sorted()
-                .collect(Collectors.toList());
+        return users.stream().filter(u -> u.getName().startsWith("A"))
+                .map(u -> u.getPersonDetails().getRole().getPermissions())
+                .flatMap( u -> u.stream())
+                .map(u -> u.toString()).sorted().collect(Collectors.toList());
+
     }
 
     public static void printCapitalizedPermissionNamesOfUsersWithSurnameStartingWithS(List<User> users) {

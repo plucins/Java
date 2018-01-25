@@ -15,10 +15,10 @@ public class UserController {
 
     public static List<User> initUserList(){
         users.add(new User("kowal12","123123",createFirstPerson()));
-        users.add(new User("dodawacz22","98521",createSecondPerson()));
+        users.add(new User("Aodawacz22","98521",createSecondPerson()));
         users.add(new User("Beni0","asdzxcwe",createThirdPerson()));
         users.add(new User("K0z4k","111222",createFourthPerson()));
-        users.add(new User("m3L0n","qwerty",createFifthPerson()));
+        users.add(new User("A3L0n","qwerty",createFifthPerson()));
 
         return users;
     }
