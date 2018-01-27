@@ -9,6 +9,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import static org.apache.commons.lang.StringUtils.substringsBetween;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -174,7 +175,6 @@ public class UserServiceTest {
         //when
          String valueFromMethod = us.getNamesAndSurnamesCommaSeparatedOfAllUsersAbove18(users);
         //then
-<<<<<<< HEAD
         assertThat(expectedValue.toString()).contains(valueFromMethod);
 
 
@@ -193,10 +193,6 @@ public class UserServiceTest {
     @Test (expected = IllegalArgumentException.class)
     public void getSortedPermissionsOfUsersWithNameStartingWithA_NullCollectionPassed() throws Exception {
         us.getSortedPermissionsOfUsersWithNameStartingWithA(nullList);
-=======
-        //assertThat(NamesAndSurnames).contains(usersAbove18.get(0).getPersonDetails().getName());
-        //TODO
->>>>>>> c8b5b4f47e395a66daf89529170d5746b9559bb1
     }
 
     @Test
@@ -228,16 +224,70 @@ public class UserServiceTest {
         assertThat(expected).contains(actualStr);
     }
 
-    @Test
-    public void printCapitalizedPermissionNamesOfUsersWithSurnameStartingWithS() throws Exception {
+    @Test (expected = IllegalArgumentException.class)
+    public void printCapitalizedPermissionNamesOfUsersWithSurnameStartingWithS_NullPassed() throws Exception {
+        us.printCapitalizedPermissionNamesOfUsersWithSurnameStartingWithS(null);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void printCapitalizedPermissionNamesOfUsersWithSurnameStartingWithS_NullCollectionPassed() throws Exception {
+        us.printCapitalizedPermissionNamesOfUsersWithSurnameStartingWithS(nullList);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void printCapitalizedPermissionNamesOfUsersWithSurnameStartingWithS_NullAsCollectionArgumentPassed() throws Exception {
+        us.printCapitalizedPermissionNamesOfUsersWithSurnameStartingWithS(listWithNull);
     }
 
     @Test
-    public void groupUsersByRole() throws Exception {
+    public void printCapitalizedPermissionNamesOfUsersWithSurnameStartingWithS_CorrectCollectionPassed() throws Exception {
+        //void method
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void groupUsersByRole_NullPassed() throws Exception {
+        us.groupUsersByRole(null);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void groupUsersByRole_NullCollectionPassed() throws Exception {
+        us.groupUsersByRole(nullList);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void groupUsersByRole_NullAsCollectionArgumentPassed() throws Exception {
+        us.groupUsersByRole(listWithNull);
     }
 
     @Test
-    public void partitionUserByUnderAndOver18() throws Exception {
+    public void partitionUserByUnderAndOver18_CorrectCollectionPassed() throws Exception {
+        Map<Boolean,List<User>> actual;
+        int counter = 0;
+        //given
+        for(int i =0; i < users.size();i++){
+            if(users.get(i).getPersonDetails().getAge() > 18){
+                counter++;
+            }
+        }
+        //when
+        actual = us.partitionUserByUnderAndOver18(users);
+        //then
+        assertThat(actual.get(true).size()).isEqualTo(counter);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void partitionUserByUnderAndOver18_NullPassed() throws Exception {
+        us.partitionUserByUnderAndOver18(null);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void partitionUserByUnderAndOver18_NullCollectionPassed() throws Exception {
+        us.partitionUserByUnderAndOver18(nullList);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void partitionUserByUnderAndOver18_NullAsCollectionArgumentPassed() throws Exception {
+        us.partitionUserByUnderAndOver18(listWithNull);
     }
 
 }
