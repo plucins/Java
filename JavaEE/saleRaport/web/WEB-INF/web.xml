@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+
+    <servlet>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>servlets.AddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddCookieServlet</servlet-name>
+        <servlet-class>servlets.AddCookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddCookieServlet</servlet-name>
+        <url-pattern>/addCookie</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ClearCookieServlet</servlet-name>
+        <servlet-class>servlets.ClearCookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClearCookieServlet</servlet-name>
+        <url-pattern>/clearServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
