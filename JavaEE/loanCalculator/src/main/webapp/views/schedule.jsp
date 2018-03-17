@@ -72,7 +72,7 @@
                 </tbody>
             </table>
 
-            <form action="/pdf" method="get">
+            <form action="/pdf" method="post">
             <button type="submit" class="btn btn-warning btn-lg btn-block mt-5">generuj PDF</button>
             </form>
         </div>
