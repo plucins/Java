@@ -39,7 +39,7 @@
 
                 <div class="form-group mt-3">
                     <label for="numberOfInstallments">Liczba rat</label>
-                    <select required multiple class="form-control" id="numberOfInstallments"
+                    <select required class="form-control" id="numberOfInstallments"
                             name="numberOfInstallments">
                         <option>12</option>
                         <option>18</option>
