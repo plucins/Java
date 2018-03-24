@@ -20,6 +20,7 @@ public class Controller {
     }
 
     public char getCharByInt(int key){
+        if(key < 0 ) key += 26;
         return int2char.get(key%26);
     }
 
