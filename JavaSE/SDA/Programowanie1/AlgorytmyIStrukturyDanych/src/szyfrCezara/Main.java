@@ -3,7 +3,7 @@ package szyfrCezara;
 public class Main {
     public static void main(String[] args) {
         String tekst = "qwertyuiop".toLowerCase();
-        int liczba = 5;
+        int liczba;
         String tekstZaszyfrowany = "";
 
         for (int i = 0; i < tekst.length(); i++) {
