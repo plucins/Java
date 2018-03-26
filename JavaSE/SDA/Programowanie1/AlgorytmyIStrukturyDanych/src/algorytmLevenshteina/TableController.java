@@ -39,18 +39,18 @@ public class TableController {
     }
 
     public void fillTable(int[][] tab){
-        for(int i = 1; i <= getWyraz1().length(); i++){
-            for(int j = 1; j <= getWyraz2().length(); j++){
+        for(int i = 0; i < getWyraz1().length(); i++){
+            for(int j = 0; j < getWyraz2().length(); j++){
                 int liczbaNaGorze = 0;
                 int liczbaObok = 0;
                 int liczbaPoUkosie = 0;
                 int koszt = 0;
-                if(getWyraz2().charAt(i-1) != getWyraz1().charAt(j-1)) koszt = 1;
-                liczbaNaGorze = tab[i-1][j]+1;
-                liczbaObok = tab[i][j-1]+1;
-                liczbaPoUkosie = tab[i-1][j-1]+koszt;
+                if(getWyraz1().charAt(i) != getWyraz2().charAt(j)) koszt = 1;
+                liczbaNaGorze = tab[i+1][j]+1;
+                liczbaObok = tab[i][j+1]+1;
+                liczbaPoUkosie = tab[i][j]+koszt;
 
-                tab[i][j] = Math.min(liczbaNaGorze,Math.min(liczbaObok,liczbaPoUkosie));
+                tab[i+1][j+1] = Math.min(liczbaNaGorze,Math.min(liczbaObok,liczbaPoUkosie));
             }
         }
 

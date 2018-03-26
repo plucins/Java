@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         TableController c = new TableController();
 
-        int[][] tab = c.initTable("kolegz","kolegg");
+        int[][] tab = c.initTable("foka","kotka");
 
 
         c.fillTable(tab);
