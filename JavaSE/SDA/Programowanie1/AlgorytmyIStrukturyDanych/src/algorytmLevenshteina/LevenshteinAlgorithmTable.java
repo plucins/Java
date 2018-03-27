@@ -1,6 +1,6 @@
 package algorytmLevenshteina;
 
-public class TableController {
+public class LevenshteinAlgorithmTable {
 
     private String wyraz1;
     private String wyraz2;

@@ -2,7 +2,7 @@ package algorytmLevenshteina;
 
 public class Main {
     public static void main(String[] args) {
-        TableController c = new TableController();
+        LevenshteinAlgorithmTable c = new LevenshteinAlgorithmTable();
 
         int[][] tab = c.initTable("foka","kotka");
 
