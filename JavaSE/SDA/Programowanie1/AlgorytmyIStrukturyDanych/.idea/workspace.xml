@@ -12,12 +12,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/foldery/Main.java">
+      <file leaf-file-name="Student.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/studentsList/Student.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="578">
+              <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+              <folding>
+                <element signature="e#534#535#0" expanded="true" />
+                <element signature="e#565#566#0" expanded="true" />
+                <element signature="e#600#601#0" expanded="true" />
+                <element signature="e#631#632#0" expanded="true" />
+                <element signature="e#667#668#0" expanded="true" />
+                <element signature="e#701#702#0" expanded="true" />
+                <element signature="e#731#732#0" expanded="true" />
+                <element signature="e#759#760#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,10 +65,10 @@
         <option value="$PROJECT_DIR$/src/algorytmLevenshteina/Main.java" />
         <option value="$PROJECT_DIR$/src/algorytmLevenshteina/TableController.java" />
         <option value="$PROJECT_DIR$/src/algorytmLevenshteina/LevenshteinAlgorithmTable.java" />
-        <option value="$PROJECT_DIR$/src/studentsList/Student.java" />
         <option value="$PROJECT_DIR$/src/studentsList/StudentListControl.java" />
         <option value="$PROJECT_DIR$/src/studentsList/Main.java" />
         <option value="$PROJECT_DIR$/src/foldery/Main.java" />
+        <option value="$PROJECT_DIR$/src/studentsList/Student.java" />
       </list>
     </option>
   </component>
@@ -107,6 +116,12 @@
               <item name="AlgorytmyIStrukturyDanych" type="b2602c69:ProjectViewProjectNode" />
               <item name="AlgorytmyIStrukturyDanych" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AlgorytmyIStrukturyDanych" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AlgorytmyIStrukturyDanych" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="studentsList" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -370,7 +385,7 @@
       <workItem from="1522078303680" duration="10836000" />
       <workItem from="1522130465912" duration="959000" />
       <workItem from="1522140798491" duration="529000" />
-      <workItem from="1522164255788" duration="4343000" />
+      <workItem from="1522164255788" duration="4568000" />
     </task>
     <task id="LOCAL-00001" summary="palindromy">
       <created>1521923632505</created>
@@ -390,7 +405,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27567000" />
+    <option name="totallyTimeSpent" value="27792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="3" width="1358" height="1047" extended-state="0" />
@@ -404,7 +419,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35307017" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35307017" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1995614" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -584,39 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/studentsList/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="102" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="102" />
-          <folding>
-            <element signature="e#524#525#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
-            <element signature="e#610#611#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-            <element signature="e#668#669#0" expanded="true" />
-            <element signature="e#708#709#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
-            <element signature="e#775#776#0" expanded="true" />
-            <element signature="e#806#807#0" expanded="true" />
-            <element signature="e#854#855#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#929#930#0" expanded="true" />
-            <element signature="e#960#961#0" expanded="true" />
-            <element signature="e#1008#1009#0" expanded="true" />
-            <element signature="e#1048#1049#0" expanded="true" />
-            <element signature="e#1084#1085#0" expanded="true" />
-            <element signature="e#1118#1119#0" expanded="true" />
-            <element signature="e#1170#1171#0" expanded="true" />
-            <element signature="e#1216#1217#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1274#1275#0" expanded="true" />
-            <element signature="e#1314#1315#0" expanded="true" />
-            <element signature="e#1348#1349#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/studentsList/StudentListControl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -642,6 +624,23 @@
         <state relative-caret-position="323">
           <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/studentsList/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding>
+            <element signature="e#534#535#0" expanded="true" />
+            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#759#760#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
