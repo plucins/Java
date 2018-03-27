@@ -80,6 +80,7 @@ cmake-build-debug/
 
 # IntelliJ
 out/
+.idea
 
 #Maven
 */target/*
