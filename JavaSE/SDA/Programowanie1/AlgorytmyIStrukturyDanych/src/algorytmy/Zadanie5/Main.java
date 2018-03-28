@@ -1,4 +1,4 @@
-package Zadanie5;
+package algorytmy.Zadanie5;
 
 public class Main {
 

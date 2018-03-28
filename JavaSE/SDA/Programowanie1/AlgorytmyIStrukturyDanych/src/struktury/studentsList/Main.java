@@ -1,4 +1,4 @@
-package studentsList;
+package struktury.studentsList;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package algorytmVigenerea;
+package algorytmy.algorytmVigenerea;
 
 import java.util.HashMap;
 import java.util.Map;

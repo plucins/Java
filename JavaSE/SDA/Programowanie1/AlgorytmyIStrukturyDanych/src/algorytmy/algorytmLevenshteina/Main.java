@@ -1,4 +1,4 @@
-package algorytmLevenshteina;
+package algorytmy.algorytmLevenshteina;
 
 public class Main {
     public static void main(String[] args) {

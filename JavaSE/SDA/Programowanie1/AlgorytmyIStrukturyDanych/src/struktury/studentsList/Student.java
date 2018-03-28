@@ -1,4 +1,4 @@
-package studentsList;
+package struktury.studentsList;
 
 public class Student {
     private int id;
@@ -32,5 +32,17 @@ public class Student {
 
     public long getPesel() {
         return pesel;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", avgGrade=" + avgGrade +
+                ", indexNumber=" + indexNumber +
+                ", pesel=" + pesel +
+                '}';
     }
 }

@@ -1,4 +1,4 @@
-package foldery;
+package struktury.foldery;
 
 import java.io.File;
 

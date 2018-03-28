@@ -1,4 +1,4 @@
-package algorytmVigenerea;
+package algorytmy.algorytmVigenerea;
 
 public class Main {
     public static void main(String[] args) {

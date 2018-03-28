@@ -1,4 +1,4 @@
-package szyfrCezara;
+package algorytmy.szyfrCezara;
 
 public class Main {
     public static void main(String[] args) {

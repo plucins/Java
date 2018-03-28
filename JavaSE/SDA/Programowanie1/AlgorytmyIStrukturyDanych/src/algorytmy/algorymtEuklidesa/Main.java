@@ -1,4 +1,4 @@
-package algorymtEuklidesa;
+package algorytmy.algorymtEuklidesa;
 
 import java.util.Scanner;
 

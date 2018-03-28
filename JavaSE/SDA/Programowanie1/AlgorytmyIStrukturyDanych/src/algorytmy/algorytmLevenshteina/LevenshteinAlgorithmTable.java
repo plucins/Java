@@ -1,4 +1,4 @@
-package algorytmLevenshteina;
+package algorytmy.algorytmLevenshteina;
 
 public class LevenshteinAlgorithmTable {
 
