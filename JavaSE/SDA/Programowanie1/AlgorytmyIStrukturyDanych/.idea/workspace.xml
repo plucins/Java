@@ -27,8 +27,8 @@
       <file leaf-file-name="intToBin.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/struktury/stackImpl/intToBin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="357">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -564,7 +564,7 @@
       <workItem from="1522164255788" duration="12114000" />
       <workItem from="1522250996492" duration="11393000" />
       <workItem from="1522336641533" duration="61000" />
-      <workItem from="1522338519154" duration="4292000" />
+      <workItem from="1522338519154" duration="4577000" />
     </task>
     <task id="LOCAL-00001" summary="palindromy">
       <created>1521923632505</created>
@@ -584,7 +584,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51084000" />
+    <option name="totallyTimeSpent" value="51369000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1345" height="1040" extended-state="0" />
@@ -938,8 +938,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/struktury/stackImpl/intToBin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="357">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
