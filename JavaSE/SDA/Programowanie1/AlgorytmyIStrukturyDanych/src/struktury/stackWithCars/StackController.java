@@ -18,12 +18,17 @@ public class StackController {
     }
 
     public void unloadFerry(){
-        for(int i = 0; i < ferry.size(); i++){
-            System.out.println(ferry.pop());
+        int counter = ferry.size();
+        for(int i = 0; i < counter; i++){
+            System.out.println("Unloading " +ferry.pop());
         }
     }
 
-    public int returnCarsCount(){
+    public int getCarsCount(){
         return ferry.size();
+    }
+
+    public double getPriceCarsOnFerry(){
+        return ferry.stream().mapToDouble(Car::getPrice).sum();
     }
 }
