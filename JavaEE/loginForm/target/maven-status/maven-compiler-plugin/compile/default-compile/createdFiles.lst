@@ -1,0 +1,5 @@
+controllers\DatabaseController.class
+servlets\LoginServlet.class
+servlets\FormServlet.class
+model\UserToReg.class
+servlets\RegisterServlet.class
