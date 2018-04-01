@@ -17,7 +17,7 @@
 
 <div class="container" >
     <div class="row">
-        <div class="col-md-8 offset-md-3 mt-5 p-5 rounded" style="background-color: #B09B74">
+        <div class="col-md-7 offset-md-2 mt-5 p-5 rounded" style="background-color: #B09B74">
 
             <form action="/register" method="post">
                 <h4 style="color:#6C757D ">Uzupełnij dane</h4>
@@ -30,12 +30,14 @@
                     <label></label>
                     <input type="email" class="form-control" required name="email" placeholder="Email">
                 </div>
-                <% if(request.getAttribute("showWarning").equals(true)){  %>
+                <% if(session.getAttribute("showWarning").equals(true)){  %>
                 <div class="alert alert-danger alert-dismissible fade show">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     Wprowadzone hasła nie zgadzają się
                 </div>
+                <% session.setAttribute("showWarning",false); %>
                 <% }%>
+                <span style="font-size: 12px;" >Masz już konto? <a href="/login">Zaloguj się </a></span>
                 <button type="submit" class="btn btn-secondary float-right">Rejestracja</button>
             </form>
 

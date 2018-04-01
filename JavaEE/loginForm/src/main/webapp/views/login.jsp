@@ -22,19 +22,28 @@
             <form action="/login" method="post">
                 <h4 style="color:#6C757D ">Zaloguje się!</h4>
 
-                <% if(request.getAttribute("showRegistrationInfo").equals(true)){  %>
+                <% if(session.getAttribute("showRegistrationInfo").equals(true)){  %>
                 <div class="alert alert-success fade show">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     Konto zostało utworzone. Zaloguje się.
                 </div>
+                <% session.setAttribute("showRegistrationInfo",false); %>
+                <% }%>
+                
+                <% if(session.getAttribute("showAuthError").equals(true)){  %>
+                <div class="alert alert-danger fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    Błędny login lub hasło
+                </div>
+                <% session.setAttribute("showAuthError",false); %>
                 <% }%>
                 <div class="form-group pt-3">
-                    <input type="text" class="form-control" required id="loginInput" placeholder="Login">
+                    <input type="text" class="form-control" required name="login" placeholder="Login">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" required id="paswordInput" placeholder="Hasło">
+                    <input type="password" class="form-control" required name="password" placeholder="Hasło">
                 </div>
-                <span style="font-size: 12px;" >Nie ma konta? <a href="/register.jsp">Zarejestruj się </a></span>
+                <span style="font-size: 12px;" >Nie ma konta? <a href="/register">Zarejestruj się </a></span>
                 <button type="submit" class="btn btn-secondary float-right">Zaloguj</button>
             </form>
 

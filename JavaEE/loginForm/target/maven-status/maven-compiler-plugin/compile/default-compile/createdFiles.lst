@@ -1,5 +1,7 @@
-controllers\DatabaseController.class
+servlets\IndexServlet.class
 servlets\LoginServlet.class
-servlets\FormServlet.class
+servlets\LogoutServlet.class
 model\UserToReg.class
 servlets\RegisterServlet.class
+controllers\DatabaseController.class
+servlets\FormServlet.class
