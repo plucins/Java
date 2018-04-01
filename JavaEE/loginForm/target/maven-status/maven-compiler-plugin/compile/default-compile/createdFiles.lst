@@ -1,7 +1,9 @@
 servlets\IndexServlet.class
+filters\RegisterFilter.class
 servlets\LoginServlet.class
 servlets\LogoutServlet.class
 model\UserToReg.class
 servlets\RegisterServlet.class
 controllers\DatabaseController.class
 servlets\FormServlet.class
+filters\LoginFilters.class

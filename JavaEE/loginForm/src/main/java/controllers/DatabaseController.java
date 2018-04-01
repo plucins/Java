@@ -63,10 +63,6 @@ public class DatabaseController {
         try {
             rs.next();
             isCorrect = rs.getString("LOGIN").equals(login) & rs.getString("PASSWORD").equals(password);
-            System.out.println(rs.getString("LOGIN"));
-            System.out.println(rs.getString("PASSWORD"));
-            System.out.println(login);
-            System.out.println(password);
 
         } catch (SQLException e) {
             e.printStackTrace();

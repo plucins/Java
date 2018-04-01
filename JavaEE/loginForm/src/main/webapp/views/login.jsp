@@ -22,20 +22,20 @@
             <form action="/login" method="post">
                 <h4 style="color:#6C757D ">Zaloguje się!</h4>
 
-                <% if(session.getAttribute("showRegistrationInfo").equals(true)){  %>
+                <% if(session.getAttribute("showRegistrationInfo")!= null){  %>
                 <div class="alert alert-success fade show">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     Konto zostało utworzone. Zaloguje się.
                 </div>
-                <% session.setAttribute("showRegistrationInfo",false); %>
+                <% session.setAttribute("showRegistrationInfo",null); %>
                 <% }%>
-                
-                <% if(session.getAttribute("showAuthError").equals(true)){  %>
+
+                <% if(session.getAttribute("showAuthError") != null){  %>
                 <div class="alert alert-danger fade show">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     Błędny login lub hasło
                 </div>
-                <% session.setAttribute("showAuthError",false); %>
+                <% session.setAttribute("showAuthError",null); %>
                 <% }%>
                 <div class="form-group pt-3">
                     <input type="text" class="form-control" required name="login" placeholder="Login">

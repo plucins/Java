@@ -30,12 +30,12 @@
                     <label></label>
                     <input type="email" class="form-control" required name="email" placeholder="Email">
                 </div>
-                <% if(session.getAttribute("showWarning").equals(true)){  %>
+                <% if(session.getAttribute("showWarning")!= null){  %>
                 <div class="alert alert-danger alert-dismissible fade show">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     Wprowadzone hasła nie zgadzają się
                 </div>
-                <% session.setAttribute("showWarning",false); %>
+                <% session.setAttribute("showWarning",null); %>
                 <% }%>
                 <span style="font-size: 12px;" >Masz już konto? <a href="/login">Zaloguj się </a></span>
                 <button type="submit" class="btn btn-secondary float-right">Rejestracja</button>

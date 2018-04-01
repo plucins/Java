@@ -15,11 +15,7 @@ import java.io.IOException;
 public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
 
-        if(session.getAttribute("showWarning") == null){
-            session.setAttribute("showWarning",false);
-        }
 
         req.getRequestDispatcher("/views/register.jsp").forward(req,resp);
     }
