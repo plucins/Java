@@ -19,23 +19,17 @@
         <img src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
     </a>
     <span>Zalogowany jako ${user.login} ${user.rights}</span>
-
     <span>
-        <% User user = (User) session.getAttribute("user");
-        if(user.getRights().equals("user")){ %>
-        <a class="btn disabled" href="/premium">Premium</a>
-        <% } else { %>
-        <a href="/premium">Premium</a>
-        <% } %>
-
-        <a href="/logout">Wyloguj</a></span>
+        <a href="/">Index</a>
+            <a href="/logout">Wyloguj</a>
+    </span>
 </nav>
 
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3 mt-5 p-5 rounded" style="background-color: #B09B74">
 
-            <p>String dostępna dla użytkownika zalogowanego.</p>
+            <p>String dostępna dla użytkownika zalogowanego Premium.</p>
         </div>
     </div>
 </div>

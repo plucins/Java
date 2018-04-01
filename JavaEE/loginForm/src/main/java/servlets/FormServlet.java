@@ -17,9 +17,9 @@ public class FormServlet extends HttpServlet {
 
 
         if(session.getAttribute("zalogowany") != null){
-            req.getRequestDispatcher("/index").forward(req,resp);
+            resp.sendRedirect("/index");
         }else {
-            req.getRequestDispatcher("/login").forward(req, resp);
+            resp.sendRedirect("/login");
         }
 
     }

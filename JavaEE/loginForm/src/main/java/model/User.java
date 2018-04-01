@@ -1,6 +1,6 @@
 package model;
 
-public class UserToReg {
+public class User {
     private String login;
     private String password;
     private String confinrmPassword;
@@ -40,7 +40,11 @@ public class UserToReg {
     }
 
     public String getRights() {
-        return "user";
+        return rights;
+    }
+
+    public void setRights(String rights) {
+        this.rights = rights;
     }
 
     @Override

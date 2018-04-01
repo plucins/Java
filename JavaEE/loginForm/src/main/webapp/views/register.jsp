@@ -30,6 +30,13 @@
                     <label></label>
                     <input type="email" class="form-control" required name="email" placeholder="Email">
                 </div>
+                <% if(session.getAttribute("showUserConflictInfo")!= null){  %>
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    Nazwa użytkownika już jest używana
+                </div>
+                <% session.setAttribute("showUserConflictInfo",null); %>
+                <% }%>
                 <% if(session.getAttribute("showWarning")!= null){  %>
                 <div class="alert alert-danger alert-dismissible fade show">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>

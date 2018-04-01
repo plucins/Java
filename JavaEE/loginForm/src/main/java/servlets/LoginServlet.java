@@ -22,10 +22,12 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        DatabaseController db = new DatabaseController();
 
-        if(new DatabaseController().isUserCorrectAuth(req.getParameter("login"),req.getParameter("password"))){
+        if(db.isUserCorrectAuth(req.getParameter("login"),req.getParameter("password"))){
             session.setAttribute("zalogowany",true);
-            req.getRequestDispatcher("/views/index.jsp").forward(req,resp);
+            session.setAttribute("user",db.getUserByName(req.getParameter("login")));
+            resp.sendRedirect("/index");
         }else{
             session.setAttribute("showAuthError",true);
             req.getRequestDispatcher("/views/login.jsp").forward(req,resp);

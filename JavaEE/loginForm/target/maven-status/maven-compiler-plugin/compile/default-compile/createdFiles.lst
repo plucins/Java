@@ -1,9 +1,12 @@
 servlets\IndexServlet.class
+filters\IndexFilter.class
+servlets\PremiumServlet.class
+filters\PremiumFilter.class
 filters\RegisterFilter.class
 servlets\LoginServlet.class
 servlets\LogoutServlet.class
-model\UserToReg.class
 servlets\RegisterServlet.class
 controllers\DatabaseController.class
+model\User.class
 servlets\FormServlet.class
 filters\LoginFilters.class
