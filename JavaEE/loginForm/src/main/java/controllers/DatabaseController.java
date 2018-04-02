@@ -3,6 +3,8 @@ package controllers;
 import model.User;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseController {
 
@@ -108,6 +110,39 @@ public class DatabaseController {
         }
 
         return u;
+    }
 
+    public List<User> getAllUsers(){
+        List<User> users = new ArrayList<>();
+        String query = "SELECT * FROM USERS";
+
+        try {
+            PreparedStatement select = connection.prepareStatement(query);
+            ResultSet rs = select.executeQuery();
+            while(rs.next()){
+                User u = new User();
+                u.setLogin(rs.getString("LOGIN"));
+                u.setEmail(rs.getString("EMAIL"));
+                u.setRights(rs.getString("RIGHTS"));
+                users.add(u);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
+
+    public void updatePrivileges(String user, String right){
+        String query = "UPDATE USERS SET (RIGHTS) = (?) WHERE LOGIN = ?";
+        try {
+            PreparedStatement update = connection.prepareStatement(query);
+            update.setString(1, right);
+            update.setString(2,user);
+            update.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

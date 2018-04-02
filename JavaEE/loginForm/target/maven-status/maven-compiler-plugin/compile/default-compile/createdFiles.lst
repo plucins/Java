@@ -9,5 +9,6 @@ filters\IndexFilter.class
 servlets\PremiumServlet.class
 filters\RegisterFilter.class
 servlets\LogoutServlet.class
+servlets\RightsServlet.class
 filters\RightsFilter.class
 model\User.class

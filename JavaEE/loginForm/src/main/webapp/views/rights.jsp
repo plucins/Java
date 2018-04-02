@@ -1,4 +1,5 @@
 <%@ page import="model.User" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -33,10 +34,46 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6 offset-md-3 mt-5 p-5 rounded" style="background-color: #B09B74">
+        <div class="col-md-6 offset-md-3 mt-5 p-5 rounded" style="background-color:#FFFFFF">
 
-            <p>String dostępna dla użytkownika zalogowanego.</p>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Login</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Uprawnienia</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${allUsers}" var="user">
+
+                <tr>
+                    <td>${user.login}</td>
+                    <td>${user.email}</td>
+                    <td>${user.rights}</td>
+                </tr>
+
+                </c:forEach>
+                </tbody>
+            </table>
+
+            <p class="font-weight-bold">Zmiana uprawnień</p>
+            <form action="/rights" method="post">
+                <select name="userToChange">
+                    <c:forEach items="${allUsers}" var="user">
+                    <option value="${user.login}">${user.login}</option>
+                    </c:forEach>
+                </select>
+                <select name="newRights">
+                    <option value="user">User</option>
+                    <option value="premium">Premium</option>
+                </select>
+                <button class="btn btn-primary btn-sm" type="submit">Zatwierdz</button>
+
+            </form>
         </div>
+
     </div>
 </div>
 

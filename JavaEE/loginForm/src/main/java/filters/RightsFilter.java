@@ -27,10 +27,12 @@ public class RightsFilter implements Filter {
             u = (User) session.getAttribute("user");
         }
 
+        if(u.getRights() == null) response.sendRedirect("/");
+
         if(!u.getRights().equals("administrator")){
             response.sendRedirect("/");
         }else {
-            request.getRequestDispatcher("/views/rights.jsp").forward(request,response);
+            request.getRequestDispatcher("/rights").forward(request,response);
         }
         filterChain.doFilter(servletRequest,servletResponse);
 
