@@ -31,8 +31,9 @@ public class Magazyn {
     }
 
     public Produkt najdrozszyProduktWMagazynie(){
-        Produkt p = null;
+        Produkt p = new Produkt(0,LocalDate.now(),"produktTestowy",0,Kategoria.NABIAL);
         for(Kategoria k: Kategoria.values()){
+            if(p.getCena() < produktyWkategorii.get(k).stream().max(Comparator.comparingDouble(u -> u.getCena())).get().getCena())
             p = produktyWkategorii.get(k).stream().max(Comparator.comparingDouble(u -> u.getCena())).get();
         }
         return p;
