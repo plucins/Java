@@ -30,15 +30,6 @@ public class Main {
         zarzadca.dodajMagazyn("Magazyn1", magazyn1);
         zarzadca.dodajMagazyn("Magazyn2", magazyn2);
 
-        zarzadca.magazynyZNazwa.values().stream()
-                .forEach(Magazyn -> System.out.println(Magazyn.najdrozszyProduktWMagazynie()));
-        zarzadca.magazynyZNazwa.values().stream()
-                .forEach(Magazyn -> System.out.println(Magazyn));
-
-        zarzadca.magazynyZNazwa.values().stream()
-                .forEach(Magazyn::usunNieswierzeProdukty);
-        zarzadca.magazynyZNazwa.values().stream()
-                .forEach(Magazyn -> System.out.println(Magazyn));
-
+        zarzadca.NajdrozszeProduktyZKazdegoMagazynu();
     }
 }

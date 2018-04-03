@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Zarzadca {
-    Map<String,Magazyn> magazynyZNazwa = new HashMap<>();
+    private Map<String,Magazyn> magazynyZNazwa = new HashMap<>();
 
     public void dodajMagazyn(String nazwa, Magazyn magazyn){
         if(!magazynyZNazwa.containsKey(nazwa)){
@@ -21,7 +21,7 @@ public class Zarzadca {
 
     public void NajdrozszeProduktyZKazdegoMagazynu(){
         for(String nazwaMagazynu : magazynyZNazwa.keySet()){
-            System.out.println("W magazynie " + nazwaMagazynu + "najdrozszy produkt to " + magazynyZNazwa.get(nazwaMagazynu).najdrozszyProduktWMagazynie());
+            System.out.println("W magazynie " + nazwaMagazynu + " najdrozszy produkt to " + magazynyZNazwa.get(nazwaMagazynu).najdrozszyProduktWMagazynie());
         }
     }
 }
