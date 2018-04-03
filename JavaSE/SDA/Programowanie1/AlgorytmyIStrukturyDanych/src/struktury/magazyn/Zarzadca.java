@@ -6,9 +6,9 @@ import java.util.Map;
 public class Zarzadca {
     Map<String,Magazyn> magazynyZNazwa = new HashMap<>();
 
-    public void dodajMagazyn(String nazwa){
+    public void dodajMagazyn(String nazwa, Magazyn magazyn){
         if(!magazynyZNazwa.containsKey(nazwa)){
-            magazynyZNazwa.put(nazwa,new Magazyn());
+            magazynyZNazwa.put(nazwa,magazyn);
         }else {
             System.out.println("Magazyn o wskazanej nazwie już istnieje");
         }
@@ -16,7 +16,7 @@ public class Zarzadca {
 
     public void wyczyscMagazyn(String nazwa){
         magazynyZNazwa.remove(nazwa);
-        dodajMagazyn(nazwa);
+        dodajMagazyn(nazwa, new Magazyn());
     }
 
     public void NajdrozszeProduktyZKazdegoMagazynu(){
