@@ -14,7 +14,7 @@ public class DatabaseController {
         try {
             Class.forName("org.hsqldb.jdbc.JDBCDriver");
             connection = DriverManager.getConnection(url, username, password);
-            if(isDatabaseExist()) createTable();
+            if(!isDatabaseExist()) createTable();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

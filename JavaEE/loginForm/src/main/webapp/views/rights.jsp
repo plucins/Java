@@ -34,7 +34,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6 offset-md-3 mt-5 p-5 rounded" style="background-color:#FFFFFF">
+        <div class="col-md-7 offset-md-3 mt-5 p-5 rounded" style="background-color:#FFFFFF">
 
 
             <table class="table">
@@ -43,6 +43,7 @@
                     <th scope="col">Login</th>
                     <th scope="col">Email</th>
                     <th scope="col">Uprawnienia</th>
+                    <th scope="col">Akcje</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -52,6 +53,7 @@
                     <td>${user.login}</td>
                     <td>${user.email}</td>
                     <td>${user.rights}</td>
+                    <td><a href="/delete?user=${user.login}"> <img style="width: 15px; height: 15px" src="http://files.softicons.com/download/toolbar-icons/flatastic-icons-part-1-by-custom-icon-design/png/512x512/delete.png"></a></td>
                 </tr>
 
                 </c:forEach>

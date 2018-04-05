@@ -2,6 +2,7 @@ filters\PremiumFilter.class
 servlets\LoginServlet.class
 servlets\RegisterServlet.class
 controllers\DatabaseController.class
+servlets\DeleteUserServlet.class
 servlets\FormServlet.class
 filters\LoginFilters.class
 servlets\IndexServlet.class

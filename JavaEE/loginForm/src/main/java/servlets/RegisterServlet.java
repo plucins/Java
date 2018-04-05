@@ -34,15 +34,15 @@ public class RegisterServlet extends HttpServlet {
         if(!user.getPassword().equals(user.getConfinrmPassword())){
             session.setAttribute("showWarning", true);
             req.getRequestDispatcher("/views/register.jsp").forward(req,resp);
-        }
-
-
-        if(new Dao().addToDataBase(user)){
-            session.setAttribute("showRegistrationInfo", true);
-            resp.sendRedirect("/login");
         }else {
-            session.setAttribute("showUserConflictInfo",true);
-            req.getRequestDispatcher("/views/register.jsp").forward(req,resp);
+
+            if (new Dao().addToDataBase(user)) {
+                session.setAttribute("showRegistrationInfo", true);
+                resp.sendRedirect("/login");
+            } else {
+                session.setAttribute("showUserConflictInfo", true);
+                req.getRequestDispatcher("/views/register.jsp").forward(req, resp);
+            }
         }
 
 

@@ -138,4 +138,15 @@ public class Dao {
         }
     }
 
+    public void deleteUser(String user){
+        String query = "DELETE FROM USERS WHERE LOGIN = ?";
+        try {
+            PreparedStatement delete = connection.prepareStatement(query);
+            delete.setString(1,user);
+            delete.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
