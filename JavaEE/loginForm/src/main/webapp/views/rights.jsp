@@ -16,7 +16,7 @@
 </head>
 <body style="background-color:#595959;background-image: url('https://www.transparenttextures.com/patterns/food.png')">
 <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="index.jsp">
+    <a class="navbar-brand" href="/index">
         <img src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
     </a>
     <span>Zalogowany jako ${user.login} ${user.rights}</span>
@@ -24,9 +24,9 @@
     <span>
         <% User user = (User) session.getAttribute("user");
             if(!user.getRights().equals("administrator")){ %>
-        <a class="btn disabled" href="/rights">Premium</a>
+        <a class="btn disabled" href="/rights">Premium</a> &nbsp &nbsp
         <% } else { %>
-        <a href="/premium">Premium</a>
+        <a href="/premium">Premium </a> &nbsp &nbsp
         <% }%>
 
         <a href="/logout">Wyloguj</a></span>

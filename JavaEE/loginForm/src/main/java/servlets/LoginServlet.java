@@ -1,6 +1,6 @@
 package servlets;
 
-import controllers.DatabaseController;
+import controllers.Dao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        DatabaseController db = new DatabaseController();
+        Dao db = new Dao();
 
         if(db.isUserCorrectAuth(req.getParameter("login"),req.getParameter("password"))){
             session.setAttribute("zalogowany",true);

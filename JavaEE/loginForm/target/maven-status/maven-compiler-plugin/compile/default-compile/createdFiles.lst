@@ -11,4 +11,5 @@ filters\RegisterFilter.class
 servlets\LogoutServlet.class
 servlets\RightsServlet.class
 filters\RightsFilter.class
+controllers\Dao.class
 model\User.class

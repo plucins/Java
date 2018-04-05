@@ -1,6 +1,6 @@
 package servlets;
 
-import controllers.DatabaseController;
+import controllers.Dao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,14 +15,14 @@ public class RightsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        DatabaseController controller = new DatabaseController();
-        req.getSession().setAttribute("allUsers",controller.getAllUsers());
+        Dao db = new Dao();;
+        req.getSession().setAttribute("allUsers",db.getAllUsers());
         req.getRequestDispatcher("/views/rights.jsp").forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        new DatabaseController().updatePrivileges(req.getParameter("userToChange"),req.getParameter("newRights"));
+        new Dao().updatePrivileges(req.getParameter("userToChange"),req.getParameter("newRights"));
         doGet(req,resp);
     }
 }

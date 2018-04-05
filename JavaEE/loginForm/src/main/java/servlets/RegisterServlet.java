@@ -1,6 +1,6 @@
 package servlets;
 
-import controllers.DatabaseController;
+import controllers.Dao;
 import model.User;
 
 import javax.servlet.ServletException;
@@ -37,7 +37,7 @@ public class RegisterServlet extends HttpServlet {
         }
 
 
-        if(new DatabaseController().addToDataBase(user)){
+        if(new Dao().addToDataBase(user)){
             session.setAttribute("showRegistrationInfo", true);
             resp.sendRedirect("/login");
         }else {

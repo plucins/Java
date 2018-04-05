@@ -27,7 +27,7 @@ public class PremiumFilter implements Filter {
             u = (User) session.getAttribute("user");
         }
 
-        if(u.getRights().equals("user")){
+        if(u.getRights() == null || u.getRights().equals("user")){
             response.sendRedirect("/");
         }else {
             request.getRequestDispatcher("/views/premium.jsp").forward(request,response);

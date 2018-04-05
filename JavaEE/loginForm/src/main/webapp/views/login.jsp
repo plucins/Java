@@ -38,6 +38,7 @@
                 <% session.setAttribute("showAuthError",null); %>
                 <% }%>
                 <div class="form-group pt-3">
+                    <p class="h6" style="font-size: 10px">konto administratora -> admin/admin</p>
                     <input type="text" class="form-control" required name="login" placeholder="Login">
                 </div>
                 <div class="form-group">
