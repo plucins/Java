@@ -26,6 +26,7 @@ public class IndexFilter implements Filter {
 
         if (u.getLogin() == null) {
             request.getRequestDispatcher("views/login.jsp").forward(servletRequest, servletResponse);
+            return;
         }
 
         filterChain.doFilter(servletRequest, servletResponse);

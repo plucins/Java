@@ -30,7 +30,6 @@ public class RightsFilter implements Filter {
         if(u.getRights() == null) response.sendRedirect("/");
 
         if(!u.getRights().equals("administrator")){
-            System.out.println("tu jestem");
             response.sendRedirect("/index");
         }else {
             filterChain.doFilter(servletRequest,servletResponse);

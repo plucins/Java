@@ -30,9 +30,9 @@ public class PremiumFilter implements Filter {
         if(u.getRights() == null || u.getRights().equals("user")){
             response.sendRedirect("/");
         }else {
-            request.getRequestDispatcher("/views/premium.jsp").forward(request,response);
+            filterChain.doFilter(servletRequest,servletResponse);
         }
-        filterChain.doFilter(servletRequest,servletResponse);
+
     }
 
     @Override

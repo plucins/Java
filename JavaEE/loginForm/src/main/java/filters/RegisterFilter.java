@@ -21,6 +21,7 @@ public class RegisterFilter implements Filter {
 
         if(session.getAttribute("zalogowany") != null){
             request.getRequestDispatcher("/index").forward(servletRequest,servletResponse);
+            return;
         }
 
         filterChain.doFilter(servletRequest,servletResponse);
