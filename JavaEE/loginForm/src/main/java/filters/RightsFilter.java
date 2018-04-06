@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter("/rights")
+@WebFilter({"/rights","/delete"})
 public class RightsFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -30,11 +30,11 @@ public class RightsFilter implements Filter {
         if(u.getRights() == null) response.sendRedirect("/");
 
         if(!u.getRights().equals("administrator")){
-            response.sendRedirect("/");
+            System.out.println("tu jestem");
+            response.sendRedirect("/index");
         }else {
-            request.getRequestDispatcher("/rights").forward(request,response);
+            filterChain.doFilter(servletRequest,servletResponse);
         }
-        filterChain.doFilter(servletRequest,servletResponse);
 
     }
 

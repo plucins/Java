@@ -1,6 +1,7 @@
 package servlets;
 
 import controllers.Dao;
+import model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +15,13 @@ public class DeleteUserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        new Dao().deleteUser(req.getParameter("user"));
-        resp.sendRedirect("/rights");
+        User user = (User) req.getSession().getAttribute("user");
+
+        if(user.getRights().equals("administrator")) {
+            new Dao().deleteUser(req.getParameter("user"));
+            resp.sendRedirect("/rights");
+        }else {
+            resp.sendRedirect("/");
+        }
     }
 }

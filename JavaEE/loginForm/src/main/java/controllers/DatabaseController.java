@@ -16,6 +16,7 @@ public class DatabaseController {
             connection = DriverManager.getConnection(url, username, password);
             if(!isDatabaseExist()) createTable();
         } catch (SQLException | ClassNotFoundException e) {
+
             e.printStackTrace();
         }
         return connection;

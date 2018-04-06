@@ -15,7 +15,7 @@ public class RightsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Dao db = new Dao();;
+        Dao db = new Dao();
         req.getSession().setAttribute("allUsers",db.getAllUsers());
         req.getRequestDispatcher("/views/rights.jsp").forward(req,resp);
     }
