@@ -1,0 +1,13 @@
+servlet\DeleteServlet.class
+controller\ThreadController.class
+servlet\DownloadServlet.class
+servlet\AddServlet.class
+mapper\ObjectToDownloadMapper.class
+controller\FileController.class
+rest\RestWebService.class
+mapper\AbstractMapper.class
+servlet\PageServlet.class
+mapper\DomainObject.class
+model\ObjectToDownload.class
+controller\DatabaseConnectionController.class
+model\ObjectToDownloadQueue.class
