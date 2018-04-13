@@ -17,6 +17,7 @@ public class PageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ObjectToDownloadMapper mapper = new ObjectToDownloadMapper(new DatabaseConnectionController().establishConnection());
+        mapper.createTableIfNotExist();
         new ThreadController().run();
 
         req.getSession().setAttribute("allFiles",mapper.select());

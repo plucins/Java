@@ -18,6 +18,7 @@ public abstract class  AbstractMapper<T extends DomainObject> {
     abstract protected String insertStatement();
     abstract protected String updateStatement();
     abstract protected String removeStatement();
+    abstract protected String tableExistStatement();
 
     abstract public T doLoad(ResultSet rs, boolean withFile) throws SQLException;
     abstract protected void parametrizeInsertStatement(PreparedStatement statement, T entity) throws SQLException;
@@ -113,5 +114,15 @@ public abstract class  AbstractMapper<T extends DomainObject> {
         T result = doLoad(rs, withFile);
         loadedMap.put(id,result);
         return result;
+    }
+
+    public void createTableIfNotExist(){
+        PreparedStatement createIfNotExistStatement;
+        try {
+            createIfNotExistStatement = connection.prepareStatement(tableExistStatement());
+            createIfNotExistStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

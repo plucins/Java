@@ -14,6 +14,7 @@ public class ObjectToDownloadMapper extends AbstractMapper<ObjectToDownload> {
     private static final String INSERT = "INSERT INTO Downloaded (fileName,url,file) VALUES (?,?,?)";
     private static final String UPDATE = "UPDATE Downloaded SET(fileName, url,file) = (?,?,?) WHERE id = ?";
     private static final String DELETE = "DELETE FROM Downloaded WHERE id = ?";
+    private static final String CREATE_TABLE_IF_NOT_EXIST = "CREATE TABLE IF NOT EXISTS DOWNLOADED( id INT IDENTITY PRIMARY KEY, filename VARCHAR(50) NOT NULL, url VARCHAR(3000) NOT NULL, file blob not null, ) ";
 
     public ObjectToDownloadMapper(Connection connection) {
         super(connection);
@@ -39,6 +40,12 @@ public class ObjectToDownloadMapper extends AbstractMapper<ObjectToDownload> {
     protected String removeStatement() {
         return DELETE;
     }
+
+    @Override
+    protected String tableExistStatement() {
+        return CREATE_TABLE_IF_NOT_EXIST;
+    }
+
 
     @Override
     protected String selectStatement() {
