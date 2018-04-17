@@ -26,4 +26,8 @@ public class DziennikSzkolny {
             System.out.println("Srednia dla przedmiotu " + suma/o.size());
         }
     }
+
+    public void wypiszOcenyStudenta(){
+        ocenyStudentaMap.values().stream().forEach( u -> u.getOcenyStudenta().values().stream().forEach(System.out::print));
+    }
 }
