@@ -1,0 +1,9 @@
+model\Adress.class
+model\LoanApplication.class
+servlet\FormServlet.class
+filter\AdressFilter.class
+filter\SuccesFilter.class
+filter\PersonFilter.class
+model\Person.class
+model\LoanParameters.class
+services\LoanService.class
