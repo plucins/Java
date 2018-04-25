@@ -1,4 +1,7 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Stol {
     private List<Gracz> gracze = new ArrayList<>();
@@ -32,8 +35,16 @@ public class Stol {
         }
     }
 
-    public Long checkWinenr(){
-        return kartyNaStole.
+    public String checkWinenr(){
+        int najwieksza = 1;
+        String imie = "";
+        for(Karta k: kartyNaStole.values()){
+            if(najwieksza < k.getFigura().getWaga()){
+                najwieksza = k.getFigura().getWaga();
+
+            }
+        }
+    return "";
     }
 
 }

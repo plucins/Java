@@ -12,6 +12,7 @@ public class GermanToUKPlugConnectorAdapterTest {
     public void sholudUkElectricalSocketProvideElectricityToGermanPlug() {
         GermanPlugConnector plugConnector = new GermanPlugConnectorImpl();
         UKElectricalSocket electricalSocket = new UKElectricalSocket();
+
         UKPlugConnector ukAdapter = new GermanToUKPlugConnectorAdapter(plugConnector);
         electricalSocket.plugIn(ukAdapter);
     }

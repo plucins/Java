@@ -10,7 +10,11 @@ public class ShoppingCartVisitorTest {
                 new Book(20, "1234"),
                 new Book(100, "5678"),
                 new Fruit(10, 2, "Banana"),
-                new Fruit(5, 5, "Apple")};
+                new Fruit(5, 5, "Apple"),
+                new Wegetable(10,false),
+                new Wegetable(10,true)
+
+        };
 
         int total = calculatePrice(items);
         System.out.println("Total Cost = " + total);

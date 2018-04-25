@@ -1,5 +1,6 @@
 package pl.anicos.patterns.exercises.mediator;
 
+
 public class UserImpl extends User {
 
     public UserImpl(ChatMediator med, String name) {

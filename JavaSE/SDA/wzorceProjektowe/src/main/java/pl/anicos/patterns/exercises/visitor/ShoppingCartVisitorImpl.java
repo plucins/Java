@@ -14,6 +14,15 @@ public class ShoppingCartVisitorImpl implements ShoppingCartVisitor {
     }
 
     @Override
+    public int visit(Wegetable wegetable) {
+        System.out.println("Wegetable ");
+        if(wegetable.bio){
+            return wegetable.price * 4;
+        }
+        return wegetable.price;
+    }
+
+    @Override
     public int visit(Fruit fruit) {
         int cost = fruit.getPricePerKg() * fruit.getWeight();
         System.out.println(fruit.getName() + " cost = " + cost);
