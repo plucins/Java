@@ -1,24 +1,29 @@
 package model;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
+@XmlRootElement
 public class Film {
-    private int id;
+    private Long id;
     private String filmName;
-    private List<String> comments = new ArrayList<>();
+    private List<Comment> comments = new ArrayList<>();
     private List<Double> rating = new ArrayList<>();
 
-    public Film(int id, String filmName) {
+    public Film(Long id, String filmName) {
         this.id = id;
         this.filmName = filmName;
     }
 
-    protected int getId() {
+    public Film() {
+    }
+
+    public Long getId() {
         return id;
     }
 
-    protected void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -31,19 +36,25 @@ public class Film {
     }
 
     public void addComment(String comment){
-        comments.add(comment);
+        Long id = getComments().size()+1L;
+        comments.add(new Comment(id,comment));
     }
 
-    public void removeComment(String comment){
-        if(comments.contains(comment)){
-            comments.remove(comment);
-        }else {
-            throw new IllegalArgumentException();
+    public void removeComment(Long id){
+        Comment comment = new Comment();
+        for(Comment c: comments){
+            if (c.getId().equals(id)) comment = c;
         }
+        comments.remove(comment);
     }
 
-    public List<String> getAllComments(){
+
+    public List<Comment> getComments(){
         return comments;
+    }
+
+    public List<Double> getRating() {
+        return rating;
     }
 
     public void addRate(Double rate){
