@@ -32,7 +32,7 @@ public class RestEndpointController {
     }
 
     @GET
-    @Path("/getAll")
+    @Path("/get/films")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllFilms(){
         List<Film> films = controller.getAllFilms();
@@ -54,6 +54,23 @@ public class RestEndpointController {
     @Produces(MediaType.APPLICATION_JSON)
     public Film removeComment(@PathParam("id") Long id,@PathParam("commentId") Long commentId){
         controller.removeComment(id,commentId);
+        return controller.getFilm(id);
+    }
+
+    @GET
+    @Path("/get/{id}/comments")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAllCOmmentsForPointedFilm(@PathParam("id") Long id){
+        List<Comment> comments = controller.getFilmComments(id);
+        GenericEntity<List<Comment>> genericEntity = new GenericEntity<List<Comment>>(comments){};
+        return Response.ok(genericEntity).build();
+    }
+
+    @PUT
+    @Path("/get/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Film changeFilmName(@PathParam("id") Long id, Film film){
+        controller.updateFilmInfo(id,film.getFilmName());
         return controller.getFilm(id);
     }
 }
