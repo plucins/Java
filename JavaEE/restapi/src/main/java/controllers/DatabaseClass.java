@@ -1,14 +1,17 @@
 package controllers;
 
+import model.Actor;
 import model.Film;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class DatabaseClass {
+class DatabaseClass {
     private static Map<Long, Film> films = new HashMap<>();
+    private static Map<Long, Actor> actors = new HashMap<>();
 
-    public static Map<Long, Film> getFilms(){
+    static Map<Long, Film> getFilms(){
         return films;
     }
+    static Map<Long, Actor> getActors() { return actors;}
 }

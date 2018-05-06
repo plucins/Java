@@ -1,7 +1,9 @@
 package controllers;
 
+import model.Actor;
 import model.Comment;
 import model.Film;
+import model.Rate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,43 +12,53 @@ import java.util.Map;
 public class FilmRestServiceController {
     private Map<Long, Film> films = DatabaseClass.getFilms();
 
-    public Film addFilm(Film film){
+    void addFilm(Film film){
         film.setId(films.size() + 1L);
         films.put(film.getId(),film);
-        return film;
     }
 
 
-    public Film getFilm(Long id){
+    Film getFilm(Long id){
         if(!films.containsKey(id)) throw new IllegalArgumentException();
         return films.get(id);
     }
 
-    public int size(){
-        return films.size();
-    }
 
-    public List<Film> getAllFilms(){
+    List<Film> getAllFilms(){
         return new ArrayList<>(films.values());
     }
 
-    public void updateFilmInfo(Long filmToUpdateId, String newName){
+    void updateFilmInfo(Long filmToUpdateId, String newName){
         if(!films.containsKey(filmToUpdateId)) throw new IllegalArgumentException();
         films.get(filmToUpdateId).setFilmName(newName);
     }
 
-    public List<Comment> getFilmComments(Long id){
+    List<Comment> getFilmComments(Long id){
         if(!films.containsKey(id)) throw new IllegalArgumentException();
         return films.get(id).getComments();
     }
 
-    public void removeComment(Long id, Long commentId){
+    void removeComment(Long id, Long commentId){
         if(!films.containsKey(id)) throw new IllegalArgumentException();
         films.get(id).removeComment(commentId);
     }
 
-    public void addComment(Long id, String comment){
+    void addComment(Long id, String comment){
         if(!films.containsKey(id)) throw new IllegalArgumentException();
         films.get(id).addComment(comment);
+    }
+
+    void addRate(Long id, double rate){
+        if(!films.containsKey(id)) throw new IllegalArgumentException();
+        films.get(id).addRate(new Rate(rate));
+    }
+
+    void addActorToFilm(Long id,Long actorId){
+        if(!films.containsKey(id)) throw new IllegalArgumentException();
+        films.get(id).addActor(new ActorRestServiceController().getActor(actorId));
+    }
+
+    List<Actor> getAllActorsFromPointedFilm(Long id){
+        return films.get(id).getActors();
     }
 }
