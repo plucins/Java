@@ -21,11 +21,10 @@ public class ChatRoom extends Observable {
 
     public void kickUser(int id_kickowanego, int id_kickujacego){
         if(chatroom.get(id_kickujacego).isAdmin()){
+            deleteObserver(chatroom.get(id_kickowanego));
             chatroom.remove(id_kickowanego);
         }else {
             System.out.println("Brak uprawnień");
         }
-
     }
-
 }
