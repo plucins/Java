@@ -1,0 +1,52 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
+<%
+    if (request.getAttribute("agentObj") instanceof Agent) {
+        List<String> listaUprawnionych = new ArrayList<>();
+        listaUprawnionych.add("plucsl1");
+
+        if(listaUprawnionych.contains(((Agent) request.getAttribute("agentObj")).getDomainLogin())){
+%>
+
+<form action="/generateCsv" method="post">
+<div class="form-row alert alert-primary" style="padding: 5px 10px">
+
+    <div class="col">
+        <label>Data od</label>
+        <input class="form-control" type="text" id="datepicker[0]" name="dateFrom">
+    </div>
+    <div class="col">
+        <label>Data do</label>
+        <input class="form-control" type="text" id="datepicker[1]" name="dateTo">
+    </div>
+    <div class="col">
+
+        <%
+                List<Agent> agentNames = new DBController().getAllAgents();
+
+        %>
+
+        <label>Osoba</label>
+        <select class="form-control" id="agent" name="agentLogin">
+            <option disabled selected>Wybierz</option>
+            <option value="wszyscy">Wszyscy</option>
+            <%
+                for (Agent a : agentNames) {
+            %>
+            <option value="<%= a.getDomainLogin()%>"><%=a.getName() + " " + a.getLastName()%></option>
+            <% } %>
+
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary ">Generuj CSV</button>
+
+
+</div>
+</form>
+
+<% } %>
+<% } %>
+
+

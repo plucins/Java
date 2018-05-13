@@ -10,9 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
+
 
 @WebServlet("/add")
 public class AddServlet extends HttpServlet {
+
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Policy policy = new Policy();
@@ -26,8 +30,8 @@ public class AddServlet extends HttpServlet {
         policy.setAgentName(getCookie(request,"agentName"));
         policy.setAgentLastName(getCookie(request,"agentLastName"));
         policy.setAgentDomainLogin(getCookie(request,"agentDomainLogin"));
+        policy.setPolicyCalculationDate(Date.valueOf(request.getParameter("calculationDate")));
 
-        response.getWriter().println(policy);
         new DBController().insertRecord(policy);
 
         response.sendRedirect("/");

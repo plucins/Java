@@ -31,4 +31,13 @@
         <servlet-name>ClearCookieServlet</servlet-name>
         <url-pattern>/clearServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>FormServlet</servlet-name>
+        <servlet-class>servlets.FormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FormServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 </web-app>

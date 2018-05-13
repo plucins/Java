@@ -1,0 +1,9 @@
+Pojo\Policy.class
+servlets\RemovePolicy.class
+servlets\AddCookieServlet.class
+DataBase\DBController.class
+servlets\ClearCookieServlet.class
+servlets\GenerateCsv.class
+servlets\AddServlet.class
+Pojo\Agent.class
+servlets\FormServlet.class

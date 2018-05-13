@@ -1,7 +1,10 @@
 package Pojo;
 
+import java.util.Date;
+
 public class Policy{
 
+    private int id;
     private String brand;
     private String policyNumber;
     private String callerPhoneNumber;
@@ -12,6 +15,15 @@ public class Policy{
     private String agentName;
     private String agentLastName;
     private String agentDomainLogin;
+    private Date policyCalculationDate;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getAgentName() {
         return agentName;
@@ -91,6 +103,14 @@ public class Policy{
 
     public void setAgencyClient(String agencyClient) {
         this.agencyClient = agencyClient;
+    }
+
+    public Date getPolicyCalculationDate() {
+        return policyCalculationDate;
+    }
+
+    public void setPolicyCalculationDate(Date policyCalculationDate) {
+        this.policyCalculationDate = policyCalculationDate;
     }
 
     @Override
