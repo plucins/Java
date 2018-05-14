@@ -8,12 +8,12 @@ public class CallRecorderApplication extends AbstractRegistrable implements ICal
     }
 
     @Override
-    public void callStaarted(int call_id) {
-        System.out.println("Ropoczeto połączenie o ID " + call_id + " - nagrywam");
+    public void callStaarted(Call call) {
+        System.out.println("Ropoczeto połączenie o ID " + call.getCallID() + " - nagrywam");
     }
 
     @Override
-    public void callEnded(int call_id) {
-        System.out.println("Koniec połączenia o ID " +call_id + " - koniec nagrywania");
+    public void callEnded(Call call) {
+        System.out.println("Koniec połączenia o ID " + call.getCallID() + " - koniec nagrywania");
     }
 }

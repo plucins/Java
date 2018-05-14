@@ -1,6 +1,7 @@
 package systemAndroid.zdarzenia;
 
 import systemAndroid.EventDispatcher;
+import systemAndroid.model.Call;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class CallEndedEvent implements IEvent {
                 pobierzObiektyImplementujaceInterface(ICallListener.class);
 
         for(ICallListener p: powitanie){
-            p.callEnded(call_id);
+            p.callEnded(new Call(call_id,"przychodzacy"));
         }
     }
 }

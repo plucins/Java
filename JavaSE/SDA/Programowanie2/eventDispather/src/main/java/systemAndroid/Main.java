@@ -2,23 +2,26 @@ package systemAndroid;
 
 import systemAndroid.zdarzenia.CallEndedEvent;
 import systemAndroid.zdarzenia.CallStartedEvent;
+import systemAndroid.zdarzenia.OutgoingCallEvent;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-            new AndroidSystem();
+        new AndroidSystem();
 
-            Scanner sc = new Scanner(System.in);
-            while (sc.hasNextLine()) {
-                String line = sc.nextLine();
-                String command = line.split(" ")[0];
-                int call_id = Integer.parseInt(line.split(" ")[1]);
-                if (command.equalsIgnoreCase("start")) {
-                    EventDispatcher.getInstance().rozeslij(new CallStartedEvent(call_id));
-                } else if (command.equalsIgnoreCase("stop")) {
-                    EventDispatcher.getInstance().rozeslij(new CallEndedEvent(call_id));
-                }
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNextLine()) {
+            String line = sc.nextLine();
+            String command = line.split(" ")[0];
+            int call_id = Integer.parseInt(line.split(" ")[1]);
+            if (command.equalsIgnoreCase("start")) {
+                EventDispatcher.getInstance().rozeslij(new CallStartedEvent(call_id));
+            } else if (command.equalsIgnoreCase("stop")) {
+                EventDispatcher.getInstance().rozeslij(new CallEndedEvent(call_id));
+            } else if (command.equalsIgnoreCase("wychodzaca")){
+                EventDispatcher.getInstance().rozeslij(new OutgoingCallEvent(call_id));
             }
         }
+    }
 }

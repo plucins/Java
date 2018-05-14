@@ -1,6 +1,8 @@
 package systemAndroid.zdarzenia;
 
+import systemAndroid.model.Call;
+
 public interface ICallListener {
-    void callStaarted(int call_id);
-    void callEnded(int call_id);
+    void callStaarted(Call c);
+    void callEnded(Call c);
 }

@@ -5,10 +5,11 @@ import systemAndroid.model.Call;
 
 import java.util.List;
 
-public class CallStartedEvent implements IEvent {
+public class OutgoingCallEvent implements IEvent {
     private int call_id;
+    private String numberToCall;
 
-    public CallStartedEvent(int call_id) {
+    public OutgoingCallEvent(int call_id) {
         this.call_id = call_id;
     }
 
@@ -18,7 +19,7 @@ public class CallStartedEvent implements IEvent {
                 pobierzObiektyImplementujaceInterface(ICallListener.class);
 
         for(ICallListener p: powitanie){
-            p.callStaarted(new Call(call_id,"przychodzacy"));
+            p.callStaarted(new Call(call_id,"wychodzacy"));
         }
     }
 }
