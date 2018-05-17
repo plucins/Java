@@ -8,8 +8,8 @@ import java.util.List;
 public class LufthansaAdapter implements IFlightsData {
     private LufthansaFlightsController controller;
 
-    public LufthansaAdapter(LufthansaFlightsController controller) {
-        this.controller = controller;
+    public LufthansaAdapter() {
+        this.controller = new LufthansaFlightsController();
     }
 
 

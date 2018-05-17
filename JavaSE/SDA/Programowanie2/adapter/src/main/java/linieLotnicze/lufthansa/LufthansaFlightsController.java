@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class LufthansaFlightsController implements IFlightsController, IFlightsData {
+class LufthansaFlightsController implements IFlightsController, IFlightsData {
     private List<Flight> flights = new ArrayList<>();
 
     private void loadFlightFromFile() {

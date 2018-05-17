@@ -8,8 +8,8 @@ import java.util.List;
 public class RyanairAdapter implements IFlightsData {
     private RyanairFilightsController controller;
 
-    public RyanairAdapter(RyanairFilightsController controller) {
-        this.controller = controller;
+    public RyanairAdapter() {
+        this.controller = new RyanairFilightsController();
     }
 
 

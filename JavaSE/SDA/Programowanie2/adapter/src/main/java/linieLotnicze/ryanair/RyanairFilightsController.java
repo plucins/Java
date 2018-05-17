@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class RyanairFilightsController implements IFlightsController, IFlightsData {
+class RyanairFilightsController implements IFlightsController, IFlightsData {
 
     private List<Flight> flights = new ArrayList<>();
 
@@ -84,4 +84,5 @@ public class RyanairFilightsController implements IFlightsController, IFlightsDa
         loadFlightFromFile();
         return flights;
     }
+
 }
