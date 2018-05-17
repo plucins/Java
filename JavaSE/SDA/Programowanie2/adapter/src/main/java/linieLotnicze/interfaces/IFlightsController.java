@@ -1,8 +1,8 @@
-package linieLotnicze;
+package linieLotnicze.interfaces;
 
 import linieLotnicze.model.Flight;
 
-public interface IFlights {
+public interface IFlightsController {
     void readFlightNumber(String s, Flight flight);
     void readDepartureTime(String s, Flight flight);
     void readArivalTime(String s, Flight flight);

@@ -1,6 +1,7 @@
 package linieLotnicze.ryanair;
 
-import linieLotnicze.IFlights;
+import linieLotnicze.interfaces.IFlightsController;
+import linieLotnicze.interfaces.IFlightsData;
 import linieLotnicze.model.Flight;
 import linieLotnicze.model.Passenger;
 
@@ -11,14 +12,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class RyanairFilightsController implements IFlights {
+public class RyanairFilightsController implements IFlightsController, IFlightsData {
 
     private List<Flight> flights = new ArrayList<>();
 
-    private void loadFlightFromFile(){
+    private void loadFlightFromFile() {
         try {
             Scanner scanner = new Scanner(new File("Ryanair.txt"));
-            while(scanner.hasNextLine()) {
+            while (scanner.hasNextLine()) {
                 if (scanner.nextLine().matches("-{90}")) {
                     Flight flight = new Flight();
                     readFlightNumber(scanner.nextLine(), flight);
@@ -79,7 +80,7 @@ public class RyanairFilightsController implements IFlights {
         }
     }
 
-    public List<Flight> getFlights(){
+    public List<Flight> getFlights() {
         loadFlightFromFile();
         return flights;
     }

@@ -1,6 +1,7 @@
 package linieLotnicze.lufthansa;
 
-import linieLotnicze.IFlights;
+import linieLotnicze.interfaces.IFlightsController;
+import linieLotnicze.interfaces.IFlightsData;
 import linieLotnicze.model.Flight;
 import linieLotnicze.model.Passenger;
 
@@ -12,21 +13,21 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class LufthansaFlightsController implements IFlights {
+public class LufthansaFlightsController implements IFlightsController, IFlightsData {
     private List<Flight> flights = new ArrayList<>();
 
-    private void loadFlightFromFile(){
+    private void loadFlightFromFile() {
         try {
             Scanner scanner = new Scanner(new File("Lufthansa.txt"));
-            while(scanner.hasNext()){
+            while (scanner.hasNext()) {
                 String[] splitedLine = scanner.nextLine().split(";");
                 Flight flight = new Flight();
                 readFlightNumber(splitedLine[0], flight);
-                readDepartureTime(splitedLine[1],flight);
-                readArivalTime(splitedLine[2],flight);
-                readBbssinesClassSeatsNumbers(splitedLine[3],flight);
-                readEconomicClassSeatsNumbers(splitedLine[4],flight);
-                if(splitedLine.length > 5) {
+                readDepartureTime(splitedLine[1], flight);
+                readArivalTime(splitedLine[2], flight);
+                readBbssinesClassSeatsNumbers(splitedLine[3], flight);
+                readEconomicClassSeatsNumbers(splitedLine[4], flight);
+                if (splitedLine.length > 5) {
                     readPassengers(splitedLine[5], flight);
                 }
                 flights.add(flight);
@@ -63,14 +64,14 @@ public class LufthansaFlightsController implements IFlights {
         List<Passenger> passengers = new ArrayList<>();
         String[] persons = s.split("%");
 
-        for(String person: persons){
+        for (String person : persons) {
             String[] personDetail = person.split("#");
-            passengers.add(new Passenger(personDetail[0],personDetail[1],personDetail[2]));
+            passengers.add(new Passenger(personDetail[0], personDetail[1], personDetail[2]));
         }
         flight.setPassengers(passengers);
     }
 
-    public List<Flight> getFlights(){
+    public List<Flight> getFlights() {
         loadFlightFromFile();
         return this.flights;
     }
