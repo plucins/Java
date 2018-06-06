@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: example.control.StudentGradeDAOTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.28 sec <<< FAILURE! - in example.control.StudentGradeDAOTest
+getAverageStudentGradeFromSopot(example.control.StudentGradeDAOTest)  Time elapsed: 0.25 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expecting an empty Optional but was containing value: <0.0>.
+	at example.control.StudentGradeDAOTest.getAverageStudentGradeFromSopot(StudentGradeDAOTest.java:72)
+

@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: example.control.StudentDAOTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.153 sec <<< FAILURE! - in example.control.StudentDAOTest
+testUpdateStudent(example.control.StudentDAOTest)  Time elapsed: 0.281 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expecting:
+  <Optional[Student{id=1, name='Janusz', password='janusz123', city='janusz123', birthday=1990-04-01, averageGrade=0.0}]>
+to contain:
+  <Student{id=1, name='Janusz', password='janusz123', city='Warszawa', birthday=1990-04-01, averageGrade=0.0}>
+but did not.
+	at example.control.StudentDAOTest.testUpdateStudent(StudentDAOTest.java:132)
+

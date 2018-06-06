@@ -30,12 +30,7 @@ public class StudentGradeDAO {
      * * Po zaimplementowaniu sukcesem powinien konczyc sie test example.control.StudentGradeDAOTest.saveStudentGradeTest
      */
     public int saveStudentGrade(StudentGrade studentGrade) throws IOException, SQLException {
-        PreparedStatement saveStudentGrade = connection.prepareStatement("INSERT INTO studentgrade (value,date,studentid) VALUES (?,?,?)");
-        saveStudentGrade.setDouble(1, studentGrade.getValue());
-        saveStudentGrade.setDate(2, Date.valueOf(studentGrade.getDate()));
-        saveStudentGrade.setInt(3, studentGrade.getStudentId());
-
-        return saveStudentGrade.executeUpdate();
+        return saveStudentGrade(studentGrade, connection);
     }
 
 
@@ -89,7 +84,7 @@ public class StudentGradeDAO {
     public List<StudentGrade> getAllStudentGradesFromCity(String city) throws IOException, SQLException {
         List<StudentGrade> studentGrades = new ArrayList<>();
         PreparedStatement getAllStudentGradesFromCity = connection.prepareStatement("select *  FROM studentgrade left outer join student on student.id = studentgrade.studentid WHERE student.city = ? ");
-        getAllStudentGradesFromCity.setString(1,city);
+        getAllStudentGradesFromCity.setString(1, city);
         ResultSet rs = getAllStudentGradesFromCity.executeQuery();
 
         while (rs.next()) {
@@ -114,14 +109,17 @@ public class StudentGradeDAO {
     public Optional<Double> getAverageStudentGradeFromCity(String city) throws IOException, SQLException {
         PreparedStatement getAvg = connection.prepareStatement("select avg(value) as Srednia FROM studentgrade \n" +
                 "left outer join student on student.id = studentgrade.studentid WHERE student.city = ?; ");
-        getAvg.setString(1,city);
+        getAvg.setString(1, city);
 
         ResultSet rs = getAvg.executeQuery();
         rs.next();
         Double result = rs.getDouble("Srednia");
+        System.out.println(result);
+        if (rs.last()) {
+            return Optional.of(result);
+        }
 
-        return Optional.of(result);
-
+        return Optional.empty();
     }
 
 }

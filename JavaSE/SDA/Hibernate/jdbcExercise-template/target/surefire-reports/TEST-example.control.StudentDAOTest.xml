@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="example.control.StudentDAOTest" time="2.076" tests="8" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="idea.version" value="2018.1.3"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="9.0.4+11"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-9.0.4\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="D:\Profile\plucsl1\Dropbox\GitHub\Java\JavaSE\SDA\Hibernate\jdbcExercise-template"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="PL"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\Profile\plucsl1\Dropbox\GitHub\Java\JavaSE\SDA\Hibernate\jdbcExercise-template"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="java.runtime.version" value="9.0.4+11"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="D:\Profile\plucsl1\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="D:\Programy\IntelliJ IDEA 2018.1.3\plugins\maven\lib\maven3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1250"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-9.0.4\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\Programy\C++ Builder\Bin;D:\Programy\C++ Builder\Projects\Bpl;C:\Atena\oracle_client\product\11.2.0\client_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Interactive Intelligence\;C:\Program Files (x86)\Interactive Intelligence\ICUserApps\;C:\Program Files\Java\apache-maven-3.5.2\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files\nodejs\;C:\Atena\PartenonEHN\Apl;C:\Atena\PartenonMTU\Apl;D:\Profile\plucsl1\AppData\Local\atom\bin;C:\Program Files\Java\apache-maven-3.5.2\bin;C:\Program Files\Java\jdk-9.0.4\bin;C:\Program Files\Java\apache-maven-3.5.2\bin;D:\Profile\plucsl1\AppData\Roaming\npm;."/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="53.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="D:\Profile\plucsl1"/>
+    <property name="user.timezone" value="Europe/Belgrade"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="9"/>
+    <property name="user.name" value="plucsl1"/>
+    <property name="java.class.path" value="D:\Programy\IntelliJ IDEA 2018.1.3\plugins\maven\lib\maven3\boot\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="9"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2018.1.3 test install -f pom.xml"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-9.0.4"/>
+    <property name="user.language" value="pl"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="9.0.4"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="D:\Programy\IntelliJ IDEA 2018.1.3\plugins\maven\lib\maven3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="testUpdateStudent" classname="example.control.StudentDAOTest" time="0.281">
+    <failure message="&#10;Expecting:&#10;  &lt;Optional[Student{id=1, name=&apos;Janusz&apos;, password=&apos;janusz123&apos;, city=&apos;janusz123&apos;, birthday=1990-04-01, averageGrade=0.0}]&gt;&#10;to contain:&#10;  &lt;Student{id=1, name=&apos;Janusz&apos;, password=&apos;janusz123&apos;, city=&apos;Warszawa&apos;, birthday=1990-04-01, averageGrade=0.0}&gt;&#10;but did not." type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+Expecting:
+  <Optional[Student{id=1, name='Janusz', password='janusz123', city='janusz123', birthday=1990-04-01, averageGrade=0.0}]>
+to contain:
+  <Student{id=1, name='Janusz', password='janusz123', city='Warszawa', birthday=1990-04-01, averageGrade=0.0}>
+but did not.
+	at example.control.StudentDAOTest.testUpdateStudent(StudentDAOTest.java:132)
+]]></failure>
+    <system-out>Optional[Student{id=1, name='Janusz', password='janusz123', city='janusz123', birthday=1990-04-01, averageGrade=0.0}]
+</system-out>
+  </testcase>
+  <testcase name="testUpdateAverageGrade" classname="example.control.StudentDAOTest" time="0.234"/>
+  <testcase name="saveAllStudentsTest" classname="example.control.StudentDAOTest" time="0.25"/>
+  <testcase name="saveStudentTest" classname="example.control.StudentDAOTest" time="0.281"/>
+  <testcase name="removeStudentTest" classname="example.control.StudentDAOTest" time="0.265"/>
+  <testcase name="testGetAllStudents" classname="example.control.StudentDAOTest" time="0.281"/>
+  <testcase name="testGetStudentById" classname="example.control.StudentDAOTest" time="0.234"/>
+  <testcase name="testFindStudentByNameAndPassword" classname="example.control.StudentDAOTest" time="0.25"/>
+</testsuite>

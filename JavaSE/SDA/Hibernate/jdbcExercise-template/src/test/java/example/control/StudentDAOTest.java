@@ -123,6 +123,7 @@ public class StudentDAOTest {
         int updatedCount = sut.updateStudent(1, newStudent);
         Optional<Student> studentById = sut.findStudentById(1);
 
+
         Assertions.assertThat(updatedCount).isEqualTo(1);
         Assertions.assertThat(studentById)
                 .isPresent()
