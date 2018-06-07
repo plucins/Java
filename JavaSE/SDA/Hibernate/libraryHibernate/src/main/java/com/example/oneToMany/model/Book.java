@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.oneToMany.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;

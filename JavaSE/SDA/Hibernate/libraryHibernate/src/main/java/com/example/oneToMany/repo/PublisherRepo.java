@@ -1,6 +1,6 @@
-package com.example.demo.repo;
+package com.example.oneToMany.repo;
 
-import com.example.demo.model.Publisher;
+import com.example.oneToMany.model.Publisher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

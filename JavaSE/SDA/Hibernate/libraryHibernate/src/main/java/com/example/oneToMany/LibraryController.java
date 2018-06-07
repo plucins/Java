@@ -1,19 +1,17 @@
-package com.example.demo;
+package com.example.oneToMany;
 
-import com.example.demo.model.Author;
-import com.example.demo.model.Book;
-import com.example.demo.model.BookType;
-import com.example.demo.model.Publisher;
-import com.example.demo.repo.AuthorRepo;
-import com.example.demo.repo.BookRepo;
-import com.example.demo.repo.PublisherRepo;
+import com.example.oneToMany.model.Author;
+import com.example.oneToMany.model.Book;
+import com.example.oneToMany.model.BookType;
+import com.example.oneToMany.model.Publisher;
+import com.example.oneToMany.repo.AuthorRepo;
+import com.example.oneToMany.repo.BookRepo;
+import com.example.oneToMany.repo.PublisherRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 
 @RestController
 public class LibraryController {
@@ -53,6 +51,5 @@ public class LibraryController {
         authorRepo.saveAndFlush(a);
         bookRepo.saveAndFlush(book);
         bookRepo.saveAndFlush(book1);
-
     }
 }
