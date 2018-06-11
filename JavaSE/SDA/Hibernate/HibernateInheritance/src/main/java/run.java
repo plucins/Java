@@ -32,6 +32,6 @@ public class run {
         carDAO.add(car);
         carDAO.add(car1);
 
-        System.out.println(carDAO.findAll());
+        System.out.println(carDAO.getCarsByBrand("Brand"));
     }
 }
