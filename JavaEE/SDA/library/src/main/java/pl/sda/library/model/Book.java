@@ -1,7 +1,22 @@
 package pl.sda.library.model;
 
+
+import org.hibernate.annotations.NamedNativeQueries;
+import org.hibernate.annotations.NamedNativeQuery;
+
 import javax.persistence.*;
 import java.util.Objects;
+
+@NamedNativeQueries({
+		@NamedNativeQuery(name = "bookByCategory",
+				query = "SELECT * From Book b where b.category_id = :categoryId",
+				resultClass = Book.class
+		),
+		@NamedNativeQuery(name = "bookByAuthor",
+				query = "SELECT * From Book b where b.author_id = :authorId",
+				resultClass = Book.class
+		)
+})
 
 @Entity
 public class Book {

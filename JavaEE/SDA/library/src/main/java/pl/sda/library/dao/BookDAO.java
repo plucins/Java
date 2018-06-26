@@ -1,5 +1,6 @@
 package pl.sda.library.dao;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pl.sda.library.model.Book;
@@ -45,6 +46,20 @@ public class BookDAO implements AbstractDAO<Book,Long> {
         session.save(entity);
         session.getTransaction().commit();
         session.close();
+    }
+
+    public List<Book> findBooksByCategory(String categoryId){
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        Query query = session.getNamedQuery("bookByCategory").setString("categoryId",categoryId);
+        return (List<Book>) query.list();
+    }
+
+    public List<Book> findBooksByActor(String actorId){
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        Query query = session.getNamedQuery("bookByAuthor").setString("authorId",actorId);
+        return (List<Book>) query.list();
     }
 
 }
