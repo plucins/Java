@@ -19,11 +19,6 @@ public class Author implements Serializable {
     public Author() {
     }
 
-    public Author(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
-    }
-
     public Long getId() {
         return id;
     }
