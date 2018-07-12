@@ -18,8 +18,13 @@ import java.util.stream.Collectors;
 @Service
 public class TodoTaskService {
 
+
+    private TodoTaskRepository todoTaskRepository;
+
     @Autowired
-    TodoTaskRepository todoTaskRepository;
+    public TodoTaskService(TodoTaskRepository todoTaskRepository) {
+        this.todoTaskRepository = todoTaskRepository;
+    }
 
     public TodoTask addTodoTask(CreateTodoTaskDto dto) {
         return todoTaskRepository.save(new TodoTask(dto.getTitle(), dto.getDescription(), LocalDateTime.now(), TaskState.NOT_ASSIGNED));
@@ -50,8 +55,8 @@ public class TodoTaskService {
     }
 
     public List<TodoTask> getTasksFromPointedDate(TasksFromPointedDateDto dto) {
-       return getAllTasks().stream()
-               .filter(u-> u.getAddedDate().toLocalDate().equals(dto.getAddedDate()))
-               .collect(Collectors.toList());
+        return getAllTasks().stream()
+                .filter(u -> u.getAddedDate().toLocalDate().equals(dto.getAddedDate()))
+                .collect(Collectors.toList());
     }
 }

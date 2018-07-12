@@ -22,6 +22,11 @@ public class TaskChange {
         this.changedescription = changedescription;
     }
 
+    public TaskChange(String changedescription) {
+        this.changedescription = changedescription;
+        this.changeDate = LocalDateTime.now();
+    }
+
     public Long getId() {
         return id;
     }

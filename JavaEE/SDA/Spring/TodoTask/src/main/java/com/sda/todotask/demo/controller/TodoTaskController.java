@@ -14,11 +14,17 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping(path = "task")
 public class TodoTaskController {
 
+
+    private TodoTaskService todoTaskService;
+
     @Autowired
-    TodoTaskService todoTaskService;
+    public TodoTaskController(TodoTaskService todoTaskService) {
+        this.todoTaskService = todoTaskService;
+    }
 
     @PostMapping(path = "/add")
     public ResponseEntity createTask(@RequestBody CreateTodoTaskDto dto){
