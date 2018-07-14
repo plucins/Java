@@ -49,6 +49,7 @@ public class TodoTaskService {
 
         if (task.isPresent()) {
             task.get().setState(dto.getState());
+            todoTaskRepository.save(task.get());
             return task;
         }
         return Optional.empty();

@@ -7,17 +7,17 @@ public class ListUserDto {
     private String email;
     private String firstName;
     private String lastName;
-    private String adress;
+    private String address;
 
     public ListUserDto() {
     }
 
-    public ListUserDto(Long id, String email, String firstName, String lastName, String adress) {
+    public ListUserDto(Long id, String email, String firstName, String lastName, String address) {
         this.id = id;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.adress = adress;
+        this.address = address;
     }
 
     public static ListUserDto createDto(AppUser user){
@@ -56,11 +56,11 @@ public class ListUserDto {
         this.lastName = lastName;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
