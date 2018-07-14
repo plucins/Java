@@ -1,5 +1,7 @@
 package com.sda.service.model.dto.user;
 
+import com.sda.service.model.ServiceUser;
+
 public class ServiceUserBasicInformation {
 
     private Long id;
@@ -18,6 +20,12 @@ public class ServiceUserBasicInformation {
         this.email = email;
         this.address = address;
     }
+
+    public static ServiceUserBasicInformation createUser(ServiceUser serviceUser){
+        return new ServiceUserBasicInformation(serviceUser.getId(),serviceUser.getName(),serviceUser.getLastName()
+                ,serviceUser.getEmail(),serviceUser.getAddress());
+    }
+    
 
     public Long getId() {
         return id;

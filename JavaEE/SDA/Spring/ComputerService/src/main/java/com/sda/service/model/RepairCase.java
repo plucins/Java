@@ -12,8 +12,10 @@ public class RepairCase {
     private LocalDateTime createDate;
     private String description;
     @OneToOne
+    @JoinColumn(name = "computer_id")
     private Computer computer;
     @OneToOne
+    @JoinColumn(name = "serviceUser_id")
     private ServiceUser user;
 
     public RepairCase() {
@@ -21,6 +23,13 @@ public class RepairCase {
 
     public RepairCase(LocalDateTime createDate, String description, Computer computer, ServiceUser user) {
         this.createDate = createDate;
+        this.description = description;
+        this.computer = computer;
+        this.user = user;
+    }
+
+    public RepairCase(String description, Computer computer, ServiceUser user) {
+        this.createDate = LocalDateTime.now();
         this.description = description;
         this.computer = computer;
         this.user = user;
