@@ -4,6 +4,7 @@ import com.sda.service.model.Computer;
 import com.sda.service.model.RepairCase;
 import com.sda.service.model.ServiceUser;
 import com.sda.service.model.dto.repaircase.RepairCaseBasicInformationDao;
+import com.sda.service.model.dto.repaircase.RepairCaseUpdate;
 import com.sda.service.model.dto.repaircase.RepariCaseFormDao;
 import com.sda.service.repository.ComputerRepository;
 import com.sda.service.repository.RepairCaseRepository;
@@ -53,5 +54,16 @@ public class RepairCaseService {
             return true;
         }
         return false;
+    }
+
+    public Optional<RepairCaseBasicInformationDao> updateRepairCase(RepairCaseUpdate dto) {
+        if(repairCaseRepository.findById(dto.getId()).isPresent()){
+            RepairCase rc = repairCaseRepository.findById(dto.getId()).get();
+            rc.setDescription(dto.getDescription());
+            repairCaseRepository.save(rc);
+
+            return Optional.of(RepairCaseBasicInformationDao.basicInformation(rc));
+        }
+        return Optional.empty();
     }
 }

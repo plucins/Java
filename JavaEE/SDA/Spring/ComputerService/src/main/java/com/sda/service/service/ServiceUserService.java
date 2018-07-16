@@ -42,6 +42,7 @@ public class ServiceUserService {
         if (user.isPresent()) {
             ServiceUser serviceUser = user.get();
             serviceUser.setName(dto.getName());
+            serviceUser.setEmail(dto.getEmail());
             serviceUser.setLastName(dto.getLastName());
             serviceUser.setAddress(dto.getAddress());
 
