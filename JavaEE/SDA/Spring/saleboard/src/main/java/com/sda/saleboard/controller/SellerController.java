@@ -23,7 +23,12 @@ public class SellerController {
 
     @PostMapping
     public ResponseEntity<BasicSellerDto> registerSeller(@RequestBody RegisterSellerDto dto) {
-        return ResponseEntity.ok(sellerService.registerSeller(dto));
+        Optional<BasicSellerDto> registerSeller = sellerService.registerSeller(dto);
+        if(registerSeller.isPresent()){
+
+            return ResponseEntity.ok(registerSeller.get());
+        }
+        return ResponseEntity.badRequest().build();
 
     }
 

@@ -3,6 +3,7 @@ package com.sda.saleboard.service;
 import com.sda.saleboard.model.Seller;
 import com.sda.saleboard.model.dto.seller.BasicSellerDto;
 import com.sda.saleboard.model.dto.seller.RegisterSellerDto;
+import com.sda.saleboard.repository.ExperienceRepository;
 import com.sda.saleboard.repository.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,14 +16,20 @@ import java.util.stream.Collectors;
 public class SellerService {
 
     private SellerRepository sellerRepository;
+    private ExperienceRepository experienceRepository;
 
     @Autowired
-    public SellerService(SellerRepository sellerRepository) {
+    public SellerService(SellerRepository sellerRepository,ExperienceRepository experienceRepository) {
+        this.experienceRepository = experienceRepository;
         this.sellerRepository = sellerRepository;
     }
 
-    public BasicSellerDto registerSeller(RegisterSellerDto dto) {
-        return BasicSellerDto.create(sellerRepository.save(Seller.create(dto)));
+    public Optional<BasicSellerDto> registerSeller(RegisterSellerDto dto) {
+        if(!sellerRepository.findByEmail(dto.getEmail()).isPresent()) {
+            experienceRepository.save(dto.getExperience());
+            return Optional.of(BasicSellerDto.create(sellerRepository.save(Seller.create(dto))));
+        }
+        return Optional.empty();
     }
 
     public List<BasicSellerDto> listSellers() {

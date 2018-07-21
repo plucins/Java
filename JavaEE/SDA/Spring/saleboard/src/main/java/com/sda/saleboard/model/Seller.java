@@ -29,14 +29,13 @@ public class Seller {
         this.experience = experience;
     }
 
-    public Seller(String email, String password, Experience experience) {
+    private Seller(String email, String password) {
         this.email = email;
         this.password = password;
-        this.experience = experience;
     }
 
     public static Seller create(RegisterSellerDto dto){
-        return new Seller(dto.getEmail(),dto.getPassword(),new Experience());
+        return new Seller(dto.getEmail(),dto.getPassword());
     }
 
     public Long getId() {
