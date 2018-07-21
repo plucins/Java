@@ -57,8 +57,8 @@ public class PolicyService {
             policy.setIncomeSource(dto.getIncomeSource());
             policy.setPolicyNumber(dto.getPolicyNumber());
             policy.setPolicyValue(dto.getPolicyValue());
-            policy.setCustomer(dto.getCustomer());
 
+            customerRepository.save(dto.getCustomer());
             return Optional.of(PolicyRegisterDto.create(policyRepository.save(policy)));
         }
 

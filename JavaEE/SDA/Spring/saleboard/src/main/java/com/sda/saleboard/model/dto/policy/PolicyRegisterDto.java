@@ -7,6 +7,7 @@ import com.sda.saleboard.model.dto.seller.BasicSellerDto;
 import java.time.LocalDateTime;
 
 public class PolicyRegisterDto {
+    private Long id;
     private double policyValue;
     private String policyNumber;
     private String incomeSource;
@@ -17,7 +18,8 @@ public class PolicyRegisterDto {
     public PolicyRegisterDto() {
     }
 
-    public PolicyRegisterDto(double policyValue, String policyNumber, String incomeSource, LocalDateTime createdDate, Customer customer, BasicSellerDto seller) {
+    public PolicyRegisterDto(Long id, double policyValue, String policyNumber, String incomeSource, LocalDateTime createdDate, Customer customer, BasicSellerDto seller) {
+        this.id = id;
         this.policyValue = policyValue;
         this.policyNumber = policyNumber;
         this.incomeSource = incomeSource;
@@ -27,10 +29,18 @@ public class PolicyRegisterDto {
     }
 
     public static PolicyRegisterDto create(Policy policy) {
-        return new PolicyRegisterDto(policy.getPolicyValue(),policy.getPolicyNumber(),policy.getIncomeSource(),policy.getCreatedDate(),policy.getCustomer(),BasicSellerDto.create(policy.getSeller()));
+        return new PolicyRegisterDto(policy.getId(),policy.getPolicyValue(),policy.getPolicyNumber(),policy.getIncomeSource()
+                ,policy.getCreatedDate(),policy.getCustomer(),BasicSellerDto.create(policy.getSeller()));
     }
 
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public double getPolicyValue() {
         return policyValue;
