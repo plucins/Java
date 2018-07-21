@@ -5,7 +5,7 @@ import com.sda.saleboard.model.Experience;
 public class RegisterSellerDto {
     private String email;
     private String password;
-    private Experience experience = new Experience();
+    private Experience experience;
 
     public RegisterSellerDto() {
     }

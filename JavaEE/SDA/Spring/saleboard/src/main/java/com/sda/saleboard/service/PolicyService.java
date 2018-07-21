@@ -19,17 +19,21 @@ public class PolicyService {
     private PolicyRepository policyRepository;
     private SellerRepository sellerRepository;
     private CustomerRepository customerRepository;
+    private ExperienceService experienceService;
 
     @Autowired
-    public PolicyService(PolicyRepository policyRepository, SellerRepository sellerRepository,CustomerRepository customerRepository) {
+    public PolicyService(PolicyRepository policyRepository, SellerRepository sellerRepository, CustomerRepository customerRepository, ExperienceService experienceService) {
         this.policyRepository = policyRepository;
         this.sellerRepository = sellerRepository;
         this.customerRepository = customerRepository;
+        this.experienceService = experienceService;
     }
 
     public Optional<PolicyRegisterDto> registerPolicy(PolicyRegisterDto dto) {
         Optional<Seller> seller = sellerRepository.findByEmail(dto.getSeller().getEmail());
         if (seller.isPresent()) {
+
+            experienceService.updateExp(seller.get(),dto);
             customerRepository.save(dto.getCustomer());
             return Optional.of(PolicyRegisterDto.create(policyRepository.save(Policy.create(dto, seller.get()))));
         }

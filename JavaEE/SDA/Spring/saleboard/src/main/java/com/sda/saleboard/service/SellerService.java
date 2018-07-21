@@ -1,5 +1,6 @@
 package com.sda.saleboard.service;
 
+import com.sda.saleboard.model.Experience;
 import com.sda.saleboard.model.Seller;
 import com.sda.saleboard.model.dto.seller.BasicSellerDto;
 import com.sda.saleboard.model.dto.seller.RegisterSellerDto;
@@ -26,8 +27,12 @@ public class SellerService {
 
     public Optional<BasicSellerDto> registerSeller(RegisterSellerDto dto) {
         if(!sellerRepository.findByEmail(dto.getEmail()).isPresent()) {
-            experienceRepository.save(dto.getExperience());
-            return Optional.of(BasicSellerDto.create(sellerRepository.save(Seller.create(dto))));
+            Experience e = new Experience();
+            experienceRepository.save(e);
+            Seller seller = Seller.create(dto);
+            seller.setExperience(e);
+
+            return Optional.of(BasicSellerDto.create(sellerRepository.save(seller)));
         }
         return Optional.empty();
     }
@@ -59,4 +64,5 @@ public class SellerService {
 
         return Optional.empty();
     }
+
 }

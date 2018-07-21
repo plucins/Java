@@ -11,16 +11,19 @@ public class Experience {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long level;
-    private Long expErned;
-    private Long expToNextLevel;
+    private long level;
+    private long expTotalEarned;
+    private long expToNextLevel;
 
     public Experience() {
+        this.level = 1;
+        this.expToNextLevel = 1000;
+        this.expTotalEarned = 0;
     }
 
-    public Experience(Long level, Long expErned, Long expToNextLevel) {
+    public Experience(Long level, Long expTotalEarned, Long expToNextLevel) {
         this.level = level;
-        this.expErned = expErned;
+        this.expTotalEarned = expTotalEarned;
         this.expToNextLevel = expToNextLevel;
     }
 
@@ -32,27 +35,27 @@ public class Experience {
         this.id = id;
     }
 
-    public Long getLevel() {
+    public long getLevel() {
         return level;
     }
 
-    public void setLevel(Long level) {
+    public void setLevel(long level) {
         this.level = level;
     }
 
-    public Long getExpErned() {
-        return expErned;
+    public long getExpTotalEarned() {
+        return expTotalEarned;
     }
 
-    public void setExpErned(Long expErned) {
-        this.expErned = expErned;
+    public void setExpTotalEarned(long expTotalEarned) {
+        this.expTotalEarned = expTotalEarned;
     }
 
-    public Long getExpToNextLevel() {
+    public long getExpToNextLevel() {
         return expToNextLevel;
     }
 
-    public void setExpToNextLevel(Long expToNextLevel) {
+    public void setExpToNextLevel(long expToNextLevel) {
         this.expToNextLevel = expToNextLevel;
     }
 }
