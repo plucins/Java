@@ -1,5 +1,6 @@
 package com.sda.saleboard.controller;
 
+import com.sda.saleboard.model.dto.policy.ListPolicyByDateDto;
 import com.sda.saleboard.model.dto.policy.PolicyRegisterDto;
 import com.sda.saleboard.service.PolicyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,10 @@ public class PolicyController {
     public ResponseEntity removePolicy(@PathVariable Long id) {
 
         return policyService.removePolicy(id) ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
+    }
+
+    @PostMapping(path = "/listByDate")
+    public ResponseEntity<List<PolicyRegisterDto>> listPolicyByUserAndDate(@RequestBody ListPolicyByDateDto dto){
+       return ResponseEntity.ok(policyService.listPolicyByUserAndDate(dto));
     }
 }
