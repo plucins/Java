@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping("api/policy")
 public class PolicyController {
 
@@ -56,5 +57,10 @@ public class PolicyController {
     @PostMapping(path = "/listByDate")
     public ResponseEntity<List<PolicyRegisterDto>> listPolicyByUserAndDate(@RequestBody ListPolicyByDateDto dto){
        return ResponseEntity.ok(policyService.listPolicyByUserAndDate(dto));
+    }
+
+    @GetMapping(path = "/limit/{number}")
+    public ResponseEntity<List<PolicyRegisterDto>> getListPolicesLimitByNumber(@PathVariable Long number){
+        return ResponseEntity.ok(policyService.getListPolicesLimitByNumber(number));
     }
 }

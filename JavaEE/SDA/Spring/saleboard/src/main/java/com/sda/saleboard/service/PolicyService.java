@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -77,6 +78,11 @@ public class PolicyService {
     public List<PolicyRegisterDto> listPolicyByUserAndDate(ListPolicyByDateDto dto) {
         return policyRepository.findAllByCreatedDateAfterAndSellerEmail(LocalDateTime.of(LocalDate.now(),LocalTime.NOON).minusDays(dto.getDaysAmount()), dto.getUserEmail())
                 .stream().map(PolicyRegisterDto::create)
+                .collect(Collectors.toList());
+    }
+
+    public List<PolicyRegisterDto> getListPolicesLimitByNumber(Long number) {
+        return getAllPolicies().stream().sorted(Comparator.comparing(PolicyRegisterDto::getCreatedDate).reversed()).limit(number)
                 .collect(Collectors.toList());
     }
 }
