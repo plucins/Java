@@ -1,7 +1,6 @@
 package com.sda.saleboard.model;
 
 import com.sda.saleboard.model.dto.seller.RegisterSellerDto;
-import com.sda.saleboard.model.dto.seller.UserRole;
 
 import javax.persistence.*;
 

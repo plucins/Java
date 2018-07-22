@@ -2,6 +2,7 @@ package com.sda.saleboard.model.dto.seller;
 
 import com.sda.saleboard.model.Experience;
 import com.sda.saleboard.model.Seller;
+import com.sda.saleboard.model.UserRole;
 
 public class BasicSellerDto {
     private Long id;

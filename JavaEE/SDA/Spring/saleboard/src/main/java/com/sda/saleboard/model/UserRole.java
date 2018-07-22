@@ -1,4 +1,4 @@
-package com.sda.saleboard.model.dto.seller;
+package com.sda.saleboard.model;
 
 public enum UserRole {
     SELLER,
