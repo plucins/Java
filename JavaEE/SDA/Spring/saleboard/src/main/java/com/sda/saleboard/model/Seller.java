@@ -1,6 +1,7 @@
 package com.sda.saleboard.model;
 
 import com.sda.saleboard.model.dto.seller.RegisterSellerDto;
+import com.sda.saleboard.model.dto.seller.UserRole;
 
 import javax.persistence.*;
 
@@ -14,6 +15,8 @@ public class Seller {
     private String lastName;
     private String email;
     private String password;
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
     @OneToOne
     @JoinColumn(name = "experience_id")
     private Experience experience;
@@ -27,11 +30,13 @@ public class Seller {
         this.email = email;
         this.password = password;
         this.experience = experience;
+        this.role = UserRole.SELLER;
     }
 
     private Seller(String email, String password) {
         this.email = email;
         this.password = password;
+        this.role = UserRole.SELLER;
     }
 
     public static Seller create(RegisterSellerDto dto){
@@ -84,5 +89,13 @@ public class Seller {
 
     public void setExperience(Experience experience) {
         this.experience = experience;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
     }
 }

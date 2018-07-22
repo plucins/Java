@@ -3,6 +3,7 @@ package com.sda.saleboard.service;
 import com.sda.saleboard.model.Experience;
 import com.sda.saleboard.model.Seller;
 import com.sda.saleboard.model.dto.seller.BasicSellerDto;
+import com.sda.saleboard.model.dto.seller.LoginSellerDto;
 import com.sda.saleboard.model.dto.seller.RegisterSellerDto;
 import com.sda.saleboard.repository.ExperienceRepository;
 import com.sda.saleboard.repository.SellerRepository;
@@ -65,4 +66,12 @@ public class SellerService {
         return Optional.empty();
     }
 
+    public Optional<BasicSellerDto> loginUser(LoginSellerDto dto) {
+        Optional<Seller> sellerOptional = sellerRepository.findByEmail(dto.getEmail());
+        if(sellerOptional.isPresent() && sellerOptional.get().getPassword().equals(dto.getPassword())){
+            return Optional.of(BasicSellerDto.create(sellerOptional.get()));
+        }
+
+        return Optional.empty();
+    }
 }

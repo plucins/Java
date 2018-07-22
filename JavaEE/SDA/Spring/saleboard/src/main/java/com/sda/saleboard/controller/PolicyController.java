@@ -59,7 +59,7 @@ public class PolicyController {
        return ResponseEntity.ok(policyService.listPolicyByUserAndDate(dto));
     }
 
-    @GetMapping(path = "/limit/{number}")
+    @GetMapping(path = "/{number}")
     public ResponseEntity<List<PolicyRegisterDto>> getListPolicesLimitByNumber(@PathVariable Long number){
         return ResponseEntity.ok(policyService.getListPolicesLimitByNumber(number));
     }

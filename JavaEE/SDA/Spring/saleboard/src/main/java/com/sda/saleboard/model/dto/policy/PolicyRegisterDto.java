@@ -4,33 +4,37 @@ import com.sda.saleboard.model.Customer;
 import com.sda.saleboard.model.Policy;
 import com.sda.saleboard.model.dto.seller.BasicSellerDto;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class PolicyRegisterDto {
     private Long id;
     private double policyValue;
     private String policyNumber;
     private String incomeSource;
-    private LocalDateTime createdDate;
+    private String brand;
+    private LocalDate saleDate;
+    private String extraInfo;
     private Customer customer;
     private BasicSellerDto seller;
 
     public PolicyRegisterDto() {
     }
 
-    public PolicyRegisterDto(Long id, double policyValue, String policyNumber, String incomeSource, LocalDateTime createdDate, Customer customer, BasicSellerDto seller) {
+    public PolicyRegisterDto(Long id, double policyValue, String policyNumber, String incomeSource, String brand, LocalDate saleDate, String extraInfo, Customer customer, BasicSellerDto seller) {
         this.id = id;
         this.policyValue = policyValue;
         this.policyNumber = policyNumber;
         this.incomeSource = incomeSource;
-        this.createdDate = createdDate;
+        this.saleDate = saleDate;
+        this.extraInfo = extraInfo;
         this.customer = customer;
         this.seller = seller;
+        this.brand = brand;
     }
 
     public static PolicyRegisterDto create(Policy policy) {
-        return new PolicyRegisterDto(policy.getId(),policy.getPolicyValue(),policy.getPolicyNumber(),policy.getIncomeSource()
-                ,policy.getCreatedDate(),policy.getCustomer(),BasicSellerDto.create(policy.getSeller()));
+        return new PolicyRegisterDto(policy.getId(), policy.getPolicyValue(), policy.getPolicyNumber(), policy.getIncomeSource(), policy.getBrand()
+                , policy.getSaleDate(),policy.getExtraInfo(), policy.getCustomer(), BasicSellerDto.create(policy.getSeller()));
     }
 
 
@@ -66,12 +70,12 @@ public class PolicyRegisterDto {
         this.incomeSource = incomeSource;
     }
 
-    public LocalDateTime getCreatedDate() {
-        return createdDate;
+    public LocalDate getSaleDate() {
+        return saleDate;
     }
 
-    public void setCreatedDate(LocalDateTime createdDate) {
-        this.createdDate = createdDate;
+    public void setSaleDate(LocalDate saleDate) {
+        this.saleDate = saleDate;
     }
 
     public Customer getCustomer() {
@@ -88,5 +92,21 @@ public class PolicyRegisterDto {
 
     public void setSeller(BasicSellerDto seller) {
         this.seller = seller;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getExtraInfo() {
+        return extraInfo;
+    }
+
+    public void setExtraInfo(String extraInfo) {
+        this.extraInfo = extraInfo;
     }
 }

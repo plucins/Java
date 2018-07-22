@@ -1,9 +1,12 @@
 package com.sda.saleboard.controller;
 
 import com.sda.saleboard.model.dto.seller.BasicSellerDto;
+import com.sda.saleboard.model.dto.seller.LoginSellerDto;
 import com.sda.saleboard.model.dto.seller.RegisterSellerDto;
 import com.sda.saleboard.service.SellerService;
+import org.apache.tomcat.jni.Error;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,12 +26,16 @@ public class SellerController {
     }
 
     @PostMapping
-    public ResponseEntity<BasicSellerDto> registerSeller(@RequestBody RegisterSellerDto dto) {
+    public ResponseEntity<?> registerSeller(@RequestBody RegisterSellerDto dto) {
+        if(!dto.getPassword().equals(dto.getConfirmPassword())){
+            return new ResponseEntity<Error>(HttpStatus.CONFLICT);
+        }
+
         Optional<BasicSellerDto> registerSeller = sellerService.registerSeller(dto);
         if(registerSeller.isPresent()){
-
             return ResponseEntity.ok(registerSeller.get());
         }
+
         return ResponseEntity.badRequest().build();
 
     }
@@ -52,6 +59,16 @@ public class SellerController {
     public ResponseEntity removeSeller(@PathVariable Long id) {
 
         return sellerService.removeSeller(id) ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<BasicSellerDto> loginUser(@RequestBody LoginSellerDto dto){
+        Optional<BasicSellerDto> seller = sellerService.loginUser(dto);
+
+        if(seller.isPresent()){
+            return ResponseEntity.ok(seller.get());
+        }
+        return ResponseEntity.badRequest().build();
     }
 
 

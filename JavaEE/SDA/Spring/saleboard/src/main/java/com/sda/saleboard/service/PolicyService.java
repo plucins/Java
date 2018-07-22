@@ -82,7 +82,8 @@ public class PolicyService {
     }
 
     public List<PolicyRegisterDto> getListPolicesLimitByNumber(Long number) {
-        return getAllPolicies().stream().sorted(Comparator.comparing(PolicyRegisterDto::getCreatedDate).reversed()).limit(number)
-                .collect(Collectors.toList());
+        return policyRepository.findAll().stream()
+                .sorted(Comparator.comparing(Policy::getCreatedDate).reversed())
+                .map(PolicyRegisterDto::create).limit(number).collect(Collectors.toList());
     }
 }

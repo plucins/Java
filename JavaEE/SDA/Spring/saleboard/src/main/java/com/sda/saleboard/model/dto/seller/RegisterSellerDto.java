@@ -5,14 +5,16 @@ import com.sda.saleboard.model.Experience;
 public class RegisterSellerDto {
     private String email;
     private String password;
+    private String confirmPassword;
     private Experience experience;
 
     public RegisterSellerDto() {
     }
 
-    public RegisterSellerDto(String email, String password) {
+    public RegisterSellerDto(String email, String password, String confirmPassword) {
         this.email = email;
         this.password = password;
+        this.confirmPassword = confirmPassword;
     }
 
     public Experience getExperience() {
@@ -37,5 +39,13 @@ public class RegisterSellerDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }
