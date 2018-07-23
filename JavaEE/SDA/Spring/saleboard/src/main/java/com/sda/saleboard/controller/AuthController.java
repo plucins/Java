@@ -38,19 +38,19 @@ public class AuthController {
     public ResponseEntity<AuthenticationDto> authenticate(@RequestBody LoginSellerDto dto) {
         Optional<BasicSellerDto> sellerOptional = sellerService.loginUser(dto);
 
-        if(sellerOptional.isPresent()){
+        if (sellerOptional.isPresent()) {
             BasicSellerDto seller = sellerOptional.get();
 
             SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
 
             byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(SECRET);
-            Key signingKey  = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
+            Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
 
             String token = Jwts.builder()
                     .setSubject(seller.getEmail())
                     .setIssuedAt(new Date())
                     .claim(AUTHORITIES_KEY, UserRole.values())
-                    .signWith(signatureAlgorithm, signingKey )
+                    .signWith(signatureAlgorithm, signingKey)
                     .compact();
 
             return ResponseEntity.ok(new AuthenticationDto(token, seller));

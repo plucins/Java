@@ -38,8 +38,8 @@ public class Seller {
         this.role = UserRole.SELLER;
     }
 
-    public static Seller create(RegisterSellerDto dto){
-        return new Seller(dto.getEmail(),dto.getPassword());
+    public static Seller create(RegisterSellerDto dto) {
+        return new Seller(dto.getEmail(), dto.getPassword());
     }
 
     public Long getId() {

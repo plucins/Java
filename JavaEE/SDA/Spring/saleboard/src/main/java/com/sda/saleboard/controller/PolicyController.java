@@ -38,10 +38,10 @@ public class PolicyController {
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<PolicyRegisterDto> updatePolicy(@PathVariable Long id, @RequestBody PolicyRegisterDto dto){
+    public ResponseEntity<PolicyRegisterDto> updatePolicy(@PathVariable Long id, @RequestBody PolicyRegisterDto dto) {
         Optional<PolicyRegisterDto> policy = policyService.updatePolicy(id, dto);
 
-        if(policy.isPresent()){
+        if (policy.isPresent()) {
             return ResponseEntity.ok(policy.get());
         }
 
@@ -55,12 +55,12 @@ public class PolicyController {
     }
 
     @PostMapping(path = "/listByDate")
-    public ResponseEntity<List<PolicyRegisterDto>> listPolicyByUserAndDate(@RequestBody ListPolicyByDateDto dto){
-       return ResponseEntity.ok(policyService.listPolicyByUserAndDate(dto));
+    public ResponseEntity<List<PolicyRegisterDto>> listPolicyByUserAndDate(@RequestBody ListPolicyByDateDto dto) {
+        return ResponseEntity.ok(policyService.listPolicyByUserAndDate(dto));
     }
 
     @GetMapping(path = "/{number}")
-    public ResponseEntity<List<PolicyRegisterDto>> getListPolicesLimitByNumber(@PathVariable Long number){
+    public ResponseEntity<List<PolicyRegisterDto>> getListPolicesLimitByNumber(@PathVariable Long number) {
         return ResponseEntity.ok(policyService.getListPolicesLimitByNumber(number));
     }
 }

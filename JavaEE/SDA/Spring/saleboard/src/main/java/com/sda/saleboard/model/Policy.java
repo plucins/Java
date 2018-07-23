@@ -29,7 +29,7 @@ public class Policy {
     public Policy() {
     }
 
-    public Policy(double policyValue, String policyNumber, String incomeSource, String brand,LocalDate saleDate, String extraInfo, Customer customer, Seller seller) {
+    public Policy(double policyValue, String policyNumber, String incomeSource, String brand, LocalDate saleDate, String extraInfo, Customer customer, Seller seller) {
         this.policyValue = policyValue;
         this.policyNumber = policyNumber;
         this.incomeSource = incomeSource;
@@ -41,8 +41,8 @@ public class Policy {
         this.createdDate = LocalDateTime.now();
     }
 
-    public static Policy create(PolicyRegisterDto dto, Seller seller){
-        return new Policy(dto.getPolicyValue(),dto.getPolicyNumber(),dto.getIncomeSource(),dto.getBrand(),dto.getSaleDate(),dto.getExtraInfo(),dto.getCustomer(),seller);
+    public static Policy create(PolicyRegisterDto dto, Seller seller) {
+        return new Policy(dto.getPolicyValue(), dto.getPolicyNumber(), dto.getIncomeSource(), dto.getBrand(), dto.getSaleDate(), dto.getExtraInfo(), dto.getCustomer(), seller);
     }
 
     public Long getId() {

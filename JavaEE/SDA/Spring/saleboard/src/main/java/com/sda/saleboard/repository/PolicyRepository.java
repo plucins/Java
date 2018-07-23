@@ -8,6 +8,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
-public interface PolicyRepository extends JpaRepository<Policy,Long> {
+public interface PolicyRepository extends JpaRepository<Policy, Long> {
     List<Policy> findAllByCreatedDateAfterAndSellerEmail(LocalDateTime date, String email);
 }

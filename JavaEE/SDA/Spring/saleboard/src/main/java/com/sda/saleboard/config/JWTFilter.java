@@ -23,14 +23,14 @@ import java.util.List;
 public class JWTFilter extends GenericFilterBean {
 
     private static final String AUTHORIZATION_HEADER = "Authorization";
-    public static final String SECRET = "8egy11swjwiwprjg";
+    public static final String SECRET = "8egy11swjwiwprsdfastqweajg";
     public static final String AUTHORITIES_KEY = "roles";
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String authHeader = request.getHeader(AUTHORIZATION_HEADER);
-        if(authHeader == null || !authHeader.startsWith("Bearer ")) {
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             ((HttpServletResponse) servletResponse).sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid Auth header");
         } else {
             try {
@@ -39,7 +39,7 @@ public class JWTFilter extends GenericFilterBean {
                 request.setAttribute("claims", claims);
                 SecurityContextHolder.getContext().setAuthentication(getAuthentication(claims));
                 filterChain.doFilter(servletRequest, servletResponse);
-            }catch (SignatureException e) {
+            } catch (SignatureException e) {
                 ((HttpServletResponse) servletResponse).sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid token");
             }
         }
@@ -48,7 +48,7 @@ public class JWTFilter extends GenericFilterBean {
     private Authentication getAuthentication(Claims claims) {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         List<String> roles = (List<String>) claims.get(AUTHORITIES_KEY);
-        for(String role: roles) {
+        for (String role : roles) {
             authorities.add(new SimpleGrantedAuthority(role));
         }
 

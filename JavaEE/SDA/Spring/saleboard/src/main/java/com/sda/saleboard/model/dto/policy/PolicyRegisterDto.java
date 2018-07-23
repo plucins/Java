@@ -34,7 +34,7 @@ public class PolicyRegisterDto {
 
     public static PolicyRegisterDto create(Policy policy) {
         return new PolicyRegisterDto(policy.getId(), policy.getPolicyValue(), policy.getPolicyNumber(), policy.getIncomeSource(), policy.getBrand()
-                , policy.getSaleDate(),policy.getExtraInfo(), policy.getCustomer(), BasicSellerDto.create(policy.getSeller()));
+                , policy.getSaleDate(), policy.getExtraInfo(), policy.getCustomer(), BasicSellerDto.create(policy.getSeller()));
     }
 
 

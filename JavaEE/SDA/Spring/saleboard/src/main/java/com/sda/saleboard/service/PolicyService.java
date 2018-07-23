@@ -38,7 +38,7 @@ public class PolicyService {
         Optional<Seller> seller = sellerRepository.findByEmail(dto.getSeller().getEmail());
         if (seller.isPresent()) {
 
-            experienceService.updateExp(seller.get(),dto);
+            experienceService.updateExp(seller.get(), dto);
             customerRepository.save(dto.getCustomer());
             return Optional.of(PolicyRegisterDto.create(policyRepository.save(Policy.create(dto, seller.get()))));
         }
@@ -76,7 +76,7 @@ public class PolicyService {
 
 
     public List<PolicyRegisterDto> listPolicyByUserAndDate(ListPolicyByDateDto dto) {
-        return policyRepository.findAllByCreatedDateAfterAndSellerEmail(LocalDateTime.of(LocalDate.now(),LocalTime.NOON).minusDays(dto.getDaysAmount()), dto.getUserEmail())
+        return policyRepository.findAllByCreatedDateAfterAndSellerEmail(LocalDateTime.of(LocalDate.now(), LocalTime.NOON).minusDays(dto.getDaysAmount()), dto.getUserEmail())
                 .stream().map(PolicyRegisterDto::create)
                 .collect(Collectors.toList());
     }

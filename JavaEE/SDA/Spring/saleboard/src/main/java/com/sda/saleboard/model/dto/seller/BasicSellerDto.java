@@ -72,7 +72,7 @@ public class BasicSellerDto {
         this.role = role;
     }
 
-    public static BasicSellerDto create(Seller seller){
-        return new BasicSellerDto(seller.getId(),seller.getEmail(),seller.getFirstName(),seller.getLastName(), seller.getExperience(),seller.getRole());
+    public static BasicSellerDto create(Seller seller) {
+        return new BasicSellerDto(seller.getId(), seller.getEmail(), seller.getFirstName(), seller.getLastName(), seller.getExperience(), seller.getRole());
     }
 }

@@ -1,8 +1,10 @@
 package com.sda.saleboard.controller;
 
+import com.sda.saleboard.model.Experience;
 import com.sda.saleboard.model.dto.seller.BasicSellerDto;
 import com.sda.saleboard.model.dto.seller.LoginSellerDto;
 import com.sda.saleboard.model.dto.seller.RegisterSellerDto;
+import com.sda.saleboard.service.ExperienceService;
 import com.sda.saleboard.service.SellerService;
 import org.apache.tomcat.jni.Error;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,20 +21,22 @@ import java.util.Optional;
 public class SellerController {
 
     private SellerService sellerService;
+    private ExperienceService experienceService;
 
     @Autowired
-    public SellerController(SellerService sellerService) {
+    public SellerController(SellerService sellerService, ExperienceService experienceService) {
         this.sellerService = sellerService;
+        this.experienceService = experienceService;
     }
 
     @PostMapping
     public ResponseEntity<?> registerSeller(@RequestBody RegisterSellerDto dto) {
-        if(!dto.getPassword().equals(dto.getConfirmPassword())){
+        if (!dto.getPassword().equals(dto.getConfirmPassword())) {
             return new ResponseEntity<Error>(HttpStatus.CONFLICT);
         }
 
         Optional<BasicSellerDto> registerSeller = sellerService.registerSeller(dto);
-        if(registerSeller.isPresent()){
+        if (registerSeller.isPresent()) {
             return ResponseEntity.ok(registerSeller.get());
         }
 
@@ -46,9 +50,9 @@ public class SellerController {
     }
 
     @PutMapping
-    public ResponseEntity<BasicSellerDto> updateSeller(@RequestBody BasicSellerDto dto){
+    public ResponseEntity<BasicSellerDto> updateSeller(@RequestBody BasicSellerDto dto) {
         Optional<BasicSellerDto> sellerDtoOptional = sellerService.updateSeller(dto);
-        if(sellerDtoOptional.isPresent()){
+        if (sellerDtoOptional.isPresent()) {
             return ResponseEntity.ok(sellerDtoOptional.get());
         }
 
@@ -62,11 +66,20 @@ public class SellerController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<BasicSellerDto> loginUser(@RequestBody LoginSellerDto dto){
+    public ResponseEntity<BasicSellerDto> loginUser(@RequestBody LoginSellerDto dto) {
         Optional<BasicSellerDto> seller = sellerService.loginUser(dto);
 
-        if(seller.isPresent()){
+        if (seller.isPresent()) {
             return ResponseEntity.ok(seller.get());
+        }
+        return ResponseEntity.badRequest().build();
+    }
+
+    @GetMapping("/exp")
+    public ResponseEntity<Experience> getUserExperience(@PathVariable int userId) {
+        Optional<Experience> expByUserId = experienceService.getExpByUserId(userId);
+        if(expByUserId.isPresent()){
+            return ResponseEntity.ok(expByUserId.get());
         }
         return ResponseEntity.badRequest().build();
     }

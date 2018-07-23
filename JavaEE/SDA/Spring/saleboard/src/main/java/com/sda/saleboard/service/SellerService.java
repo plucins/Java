@@ -21,13 +21,13 @@ public class SellerService {
     private ExperienceRepository experienceRepository;
 
     @Autowired
-    public SellerService(SellerRepository sellerRepository,ExperienceRepository experienceRepository) {
+    public SellerService(SellerRepository sellerRepository, ExperienceRepository experienceRepository) {
         this.experienceRepository = experienceRepository;
         this.sellerRepository = sellerRepository;
     }
 
     public Optional<BasicSellerDto> registerSeller(RegisterSellerDto dto) {
-        if(!sellerRepository.findByEmail(dto.getEmail()).isPresent()) {
+        if (!sellerRepository.findByEmail(dto.getEmail()).isPresent()) {
             Experience e = new Experience();
             experienceRepository.save(e);
             Seller seller = Seller.create(dto);
@@ -55,7 +55,7 @@ public class SellerService {
 
     public Optional<BasicSellerDto> updateSeller(BasicSellerDto dto) {
         Optional<Seller> sellerOptional = sellerRepository.findById(dto.getId());
-        if(sellerOptional.isPresent()){
+        if (sellerOptional.isPresent()) {
             Seller seller = sellerOptional.get();
             seller.setFirstName(dto.getFirstName());
             seller.setLastName(dto.getLastName());
@@ -68,7 +68,7 @@ public class SellerService {
 
     public Optional<BasicSellerDto> loginUser(LoginSellerDto dto) {
         Optional<Seller> sellerOptional = sellerRepository.findByEmail(dto.getEmail());
-        if(sellerOptional.isPresent() && sellerOptional.get().getPassword().equals(dto.getPassword())){
+        if (sellerOptional.isPresent() && sellerOptional.get().getPassword().equals(dto.getPassword())) {
             return Optional.of(BasicSellerDto.create(sellerOptional.get()));
         }
 
