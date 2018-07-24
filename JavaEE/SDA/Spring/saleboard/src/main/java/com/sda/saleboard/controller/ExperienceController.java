@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.Optional;
 
 @RestController
@@ -20,8 +21,8 @@ public class ExperienceController {
         this.experienceService = experienceService;
     }
 
-    @GetMapping(path = "/")
-    public ResponseEntity<Experience> getUserExperience(@RequestParam(name = "userId") int userId) {
+    @GetMapping(path = "/{userId}")
+    public ResponseEntity<Experience> getUserExperience(@PathVariable("userId") int userId) {
         Optional<Experience> expByUserId = experienceService.getExpByUserId(userId);
         if(expByUserId.isPresent()){
             return ResponseEntity.ok(expByUserId.get());
