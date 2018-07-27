@@ -75,7 +75,7 @@ public class SellerController {
         return ResponseEntity.badRequest().build();
     }
 
-    @GetMapping("/exp")
+    @GetMapping("/exp/{userId}")
     public ResponseEntity<Experience> getUserExperience(@PathVariable int userId) {
         Optional<Experience> expByUserId = experienceService.getExpByUserId(userId);
         if(expByUserId.isPresent()){
@@ -83,6 +83,12 @@ public class SellerController {
         }
         return ResponseEntity.badRequest().build();
     }
+
+    @GetMapping("/byExp")
+    public ResponseEntity<List<BasicSellerDto>> getUsersSortedByExp() {
+        return ResponseEntity.ok(sellerService.getUsersSortedByExp());
+    }
+
 
 
 }
