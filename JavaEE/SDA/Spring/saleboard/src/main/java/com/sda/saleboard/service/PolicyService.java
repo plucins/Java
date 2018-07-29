@@ -76,7 +76,7 @@ public class PolicyService {
 
 
     public List<PolicyRegisterDto> listPolicyByUserAndDate(ListPolicyByDateDto dto) {
-        return policyRepository.findAllByCreatedDateAfterAndSellerEmail(LocalDateTime.of(LocalDate.now(), LocalTime.NOON).minusDays(dto.getDaysAmount()), dto.getUserEmail())
+        return policyRepository.findAllByCreatedDateAfterAndSellerEmail(LocalDateTime.of(LocalDate.now(), LocalTime.MIDNIGHT).minusDays(dto.getDaysAmount()), dto.getUserEmail())
                 .stream().map(PolicyRegisterDto::create)
                 .collect(Collectors.toList());
     }
