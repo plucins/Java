@@ -14,6 +14,7 @@ public class Experience {
     private long level;
     private long expTotalEarned;
     private long expToNextLevel;
+    private Double percentToNextLevel;
 
     public Experience() {
         this.level = 1;
@@ -57,5 +58,13 @@ public class Experience {
 
     public void setExpToNextLevel(long expToNextLevel) {
         this.expToNextLevel = expToNextLevel;
+    }
+
+    public Double getPercentToNextLevel() {
+        return percentToNextLevel;
+    }
+
+    public void setPercentToNextLevel(Double percentToNextLevel) {
+        this.percentToNextLevel = percentToNextLevel;
     }
 }

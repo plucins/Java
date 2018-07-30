@@ -52,6 +52,7 @@ public class PolicyService {
 
     public boolean removePolicy(Long id) {
         if (policyRepository.findById(id).isPresent()) {
+            experienceService.countExpInMinus(id);
             policyRepository.deleteById(id);
             return true;
         }
@@ -66,6 +67,7 @@ public class PolicyService {
             policy.setIncomeSource(dto.getIncomeSource());
             policy.setPolicyNumber(dto.getPolicyNumber());
             policy.setPolicyValue(dto.getPolicyValue());
+            policy.setBrand(dto.getBrand());
 
             customerRepository.save(dto.getCustomer());
             return Optional.of(PolicyRegisterDto.create(policyRepository.save(policy)));
