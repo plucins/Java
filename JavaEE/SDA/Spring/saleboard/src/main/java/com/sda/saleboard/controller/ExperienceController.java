@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.Optional;
 
 @RestController
@@ -27,6 +26,16 @@ public class ExperienceController {
         if(expByUserId.isPresent()){
             return ResponseEntity.ok(expByUserId.get());
         }
+        return ResponseEntity.badRequest().build();
+    }
+
+    @PutMapping("/points")
+    public ResponseEntity<Experience> updateExperience(@RequestBody Experience experience){
+        Optional<Experience> experienceOptional = experienceService.updatePoints(experience);
+        if(experienceOptional.isPresent()) {
+            return ResponseEntity.ok(experienceOptional.get());
+        }
+
         return ResponseEntity.badRequest().build();
     }
 }

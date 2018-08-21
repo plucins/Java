@@ -14,7 +14,12 @@ public class Experience {
     private long level;
     private long expTotalEarned;
     private long expToNextLevel;
-    private Double percentToNextLevel;
+    private double percentToNextLevel;
+    private int attack;
+    private int defence;
+    private int knowledge;
+    private int speedAttack;
+    private int pointsToAdd;
 
     public Experience() {
         this.level = 1;
@@ -66,5 +71,49 @@ public class Experience {
 
     public void setPercentToNextLevel(Double percentToNextLevel) {
         this.percentToNextLevel = percentToNextLevel;
+    }
+
+    public void setPercentToNextLevel(double percentToNextLevel) {
+        this.percentToNextLevel = percentToNextLevel;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public int getDefence() {
+        return defence;
+    }
+
+    public void setDefence(int defence) {
+        this.defence = defence;
+    }
+
+    public int getKnowledge() {
+        return knowledge;
+    }
+
+    public void setKnowledge(int knowledge) {
+        this.knowledge = knowledge;
+    }
+
+    public int getSpeedAttack() {
+        return speedAttack;
+    }
+
+    public void setSpeedAttack(int speedAttack) {
+        this.speedAttack = speedAttack;
+    }
+
+    public int getPointsToAdd() {
+        return pointsToAdd;
+    }
+
+    public void setPointsToAdd(int pointsToAdd) {
+        this.pointsToAdd = pointsToAdd;
     }
 }

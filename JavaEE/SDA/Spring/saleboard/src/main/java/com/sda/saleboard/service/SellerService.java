@@ -2,6 +2,7 @@ package com.sda.saleboard.service;
 
 import com.sda.saleboard.model.Experience;
 import com.sda.saleboard.model.Seller;
+import com.sda.saleboard.model.UserRole;
 import com.sda.saleboard.model.dto.seller.BasicSellerDto;
 import com.sda.saleboard.model.dto.seller.LoginSellerDto;
 import com.sda.saleboard.model.dto.seller.RegisterSellerDto;
@@ -10,9 +11,7 @@ import com.sda.saleboard.repository.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -80,5 +79,9 @@ public class SellerService {
         return listSellers().stream()
                 .sorted(Comparator.comparingLong(u -> u.getExperience().getExpTotalEarned()))
                 .collect(Collectors.toList());
+    }
+
+    public List<UserRole> getAvailableRoles() {
+        return Arrays.asList(UserRole.values());
     }
 }

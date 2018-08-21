@@ -51,7 +51,8 @@ public class PolicyService {
     }
 
     public boolean removePolicy(Long id) {
-        if (policyRepository.findById(id).isPresent()) {
+        Optional<Policy> policyOptional = policyRepository.findById(id);
+        if (policyOptional.isPresent()) {
             experienceService.countExpInMinus(id);
             policyRepository.deleteById(id);
             return true;

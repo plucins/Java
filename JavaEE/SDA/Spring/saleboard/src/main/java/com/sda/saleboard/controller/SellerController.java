@@ -1,6 +1,7 @@
 package com.sda.saleboard.controller;
 
 import com.sda.saleboard.model.Experience;
+import com.sda.saleboard.model.UserRole;
 import com.sda.saleboard.model.dto.seller.BasicSellerDto;
 import com.sda.saleboard.model.dto.seller.LoginSellerDto;
 import com.sda.saleboard.model.dto.seller.RegisterSellerDto;
@@ -87,6 +88,11 @@ public class SellerController {
     @GetMapping("/byExp")
     public ResponseEntity<List<BasicSellerDto>> getUsersSortedByExp() {
         return ResponseEntity.ok(sellerService.getUsersSortedByExp());
+    }
+
+    @GetMapping("/roles")
+    public ResponseEntity<List<UserRole>> getAvailableRoles() {
+        return ResponseEntity.ok(sellerService.getAvailableRoles());
     }
 
 
