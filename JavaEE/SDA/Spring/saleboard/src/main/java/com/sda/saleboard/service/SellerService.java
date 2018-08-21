@@ -59,6 +59,7 @@ public class SellerService {
             Seller seller = sellerOptional.get();
             seller.setFirstName(dto.getFirstName());
             seller.setLastName(dto.getLastName());
+            seller.setRole(dto.getRole());
 
             return Optional.of(BasicSellerDto.create(sellerRepository.save(seller)));
         }
